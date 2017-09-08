@@ -1,0 +1,22 @@
+/* # Image + texte au survol */
+
+
+/**
+ * Image + text. Hide text by default, display it on hover.
+ */
+ &-img 
+ {
+	&-txt 
+	{
+		@include smash-img-txt();
+
+
+		&-hover 
+		{
+			@include smash-img-txt-hover();
+		}
+
+		
+	}
+
+ }

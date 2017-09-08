@@ -1,0 +1,75 @@
+/* # Contenu masqué visuellement (et les versions surchargées) */
+
+
+@at-root
+{
+  %visually-hidden 
+  {
+    @include smash-visually-hidden;
+  }
+
+  %visually-hidden-i
+  {
+    @include smash-visually-hidden-i;
+  }
+
+  %visually-visible
+  {
+    @include smash-visually-visible;
+  }
+
+  %visually-visible-i
+  {
+    @include smash-visually-visible-i;
+  }
+}
+
+&-visually
+{
+  &-hidden
+  {
+    @extend %visually-hidden;
+    
+    &-i
+    {
+      @extend %visually-hidden-i;
+    }
+  }
+  &-visible
+  {
+    @extend %visually-visible;
+    
+    &-i
+    {
+      @extend %visually-visible-i;
+    }
+  }
+}
+
+/* # Liens de navigation « invisibles » */
+
+/*
+Les liens seront visible au focus.
+*/
+
+/*
+  	<ul class="smash-list smash-list-float smash-a11y">
+  		<li><a href="#">Lorem</a></li>
+  		<li><a href="#">Ipsum</a></li>
+  		<li><a href="#">Dolor</a></li>
+  	</ul>
+*/
+
+// &-a11y
+// {
+//   a
+//   {
+//     @include smash-visually-hidden;
+    
+//     &:hover,
+//     &:focus
+//     {
+//       @include smash-visually-visible;
+//     }
+//   }
+// }

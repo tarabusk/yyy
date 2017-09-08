@@ -1,0 +1,594 @@
+{
+    "key": "group_555300490c0e9",
+    "title": "Projet",
+    "fields": [
+        {
+            "key": "field_55a617f15f3a4",
+            "label": "Afficher ce projet sur la page d'accueil\u00a0?",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Pour modifier les projets affich\u00e9s sur la page d'accueil, veuillez d\u00e9sormais passer par la page \u00ab\u00a0Options\u00a0\u00bb du th\u00e8me.",
+            "esc_html": 0,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_55791e9ab5be3",
+            "label": "Afficher ce projet sur la page \u00ab\u00a0Projets\u00a0\u00bb (filtres)\u00a0?",
+            "name": "project_feature_listing",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
+        },
+        {
+            "key": "field_5553502fd9342",
+            "label": "Image d'arri\u00e8re-plan",
+            "name": "project_background",
+            "type": "image",
+            "instructions": "S\u00e9lectionnez l'image \u00e0 utiliser comme arri\u00e8re-plan sur la page d'accueil lorsque ce projet sera survol\u00e9.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_555305864141e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_55791e9ab5be3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_555305cf4d656",
+            "label": "Lieu",
+            "name": "project_place",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_555305eba988d",
+            "label": "Ann\u00e9e de d\u00e9but",
+            "name": "project_year_start",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1950,
+            "max": 3000,
+            "step": 1,
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_555323ebdca33",
+            "label": "Ann\u00e9e de fin",
+            "name": "project_year_end",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1950,
+            "max": 3000,
+            "step": 1,
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5553060d9d454",
+            "label": "Statut",
+            "name": "project_status",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "complete": "R\u00e9alis\u00e9",
+                "processing": "En cours"
+            },
+            "default_value": {
+                "complete": "complete"
+            },
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_5553004ec41e3",
+            "label": "Accroche",
+            "name": "project_catch_phrase",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5553055244c0a",
+            "label": "En quelques mots",
+            "name": "project_lead_in",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_55532436c5148",
+            "label": "Norme",
+            "name": "project_norm",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 300,
+            "rows": "",
+            "new_lines": "br",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_55532421c5147",
+            "label": "M\u00e9dailles",
+            "name": "project_awards",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 300,
+            "rows": "",
+            "new_lines": "br",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_55534ac038fa1",
+            "label": "Structure de la page",
+            "name": "project_structure",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "Ajouter un bloc",
+            "min": 2,
+            "max": "",
+            "layouts": [
+                {
+                    "key": "55534e66dab72",
+                    "name": "project_layout_image",
+                    "label": "Bloc image",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_55534e76dab73",
+                            "label": "Image",
+                            "name": "project_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": 1750,
+                            "min_height": 720,
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "55534e8cdab74",
+                    "name": "project_gallery_2cols",
+                    "label": "Bloc galerie 2 colonnes",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_55534e9ddab75",
+                            "label": "Galerie",
+                            "name": "project_gallery2",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "min": 2,
+                            "max": 2,
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "555350f891ccf",
+                    "name": "project_gallery_4cols",
+                    "label": "Bloc galerie 4 colonnes",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_555350f891cd0",
+                            "label": "Galerie",
+                            "name": "project_gallery4",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "min": 4,
+                            "max": 4,
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "55534dfcc69ee",
+                    "name": "project_layout_text",
+                    "label": "Bloc texte",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_55534dfcc69f4",
+                            "label": "Texte WYSIWYG",
+                            "name": "project_wysiwyg",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "55534ad05f9c1",
+                    "name": "project_layout_quote",
+                    "label": "Bloc citation",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_55534b0e38fa2",
+                            "label": "Citation",
+                            "name": "project_quote_content",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": 1000,
+                            "rows": "",
+                            "new_lines": "br",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_55534ba438fa3",
+                            "label": "Auteur\u00b7e de la citation",
+                            "name": "project_quote_author",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "5555b51dae2a0",
+                    "name": "project_layout_video",
+                    "label": "Bloc vid\u00e9o",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5555b52bae2a1",
+                            "label": "URL de la vid\u00e9o",
+                            "name": "project_video_url",
+                            "type": "url",
+                            "instructions": "Saisir l'URL avec <code>http:\/\/<\/code> ou <code>https:\/\/<\/code>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        },
+        {
+            "key": "field_55532477c514a",
+            "label": "Fiche technique",
+            "name": "project_technical_details",
+            "type": "repeater",
+            "instructions": "Saisissez autant d'informations que vous le souhaitez. Pour chaque information : un titre et un contenu, tous deux obligatoires. Vous pouvez r\u00e9organiser les lignes en survolant les num\u00e9ros situ\u00e9s \u00e0 leur gauche.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "table",
+            "button_label": "Ajouter un \u00e9l\u00e9ment",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_5553271ec514b",
+                    "label": "D\u00e9tail technique",
+                    "name": "project_detail_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_55534356c514c",
+                    "label": "Contenu",
+                    "name": "project_detail_content",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        },
+        {
+            "key": "field_55532448c5149",
+            "label": "Dossier de presse",
+            "name": "project_pdf",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": 2,
+            "mime_types": "pdf"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "projet"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "format",
+        "page_attributes",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1504782252
+}

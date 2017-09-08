@@ -1,0 +1,113 @@
+/* # RM popin */
+
+@at-root 
+{
+	%popin-fixed
+	{
+		@include mq(desktop)
+		{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 99;
+		}
+	}
+
+}
+
+.#{$smash-prefix-framework}-popin
+{
+	@extend %popin-fixed;
+
+	@include mq($until: desktop)
+	{
+		display: none !important;
+	}
+
+	@include mq(desktop)
+	{
+		display: none; // hidden by default
+	}
+
+	//
+	// Overlay
+	//
+	&-overlay
+	{
+		@extend %popin-fixed;
+
+		@include mq(desktop)
+		{
+			background: rgba($smash-mineshaft, .8);
+		}
+	}
+
+
+	//
+	// Content
+	//
+	&-content 
+	{
+		@include mq(desktop)
+		{
+			display: table;
+			width: 100%;
+			height: 100%;
+			table-layout: fixed;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 100;
+
+			&_in-1
+			{
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				padding: smash-size($smash-gutter) smash-size($smash-project-item-width);
+
+				object,
+				img,
+				video,
+				figure
+				{
+					margin: auto;
+
+					.ie9 &
+					{
+						width: 100%;
+					}
+				}
+			}
+
+			&_in-2 
+			{
+				position: relative;
+				@include inline-block(top);
+				max-width: 100%; // Firefox bugfix
+		
+				//
+				// Close
+				//
+				&::before
+				{
+					content: '';
+					display: block;
+					position: absolute;
+					top: smash-size(-30px);
+					right: 0;
+					width: smash-size(20px);
+					height: smash-size(20px);
+					background: inline-image('close_wh.svg');
+					cursor: pointer;
+				}
+			}	
+		}
+	}	
+}

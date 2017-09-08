@@ -1,0 +1,2129 @@
+[
+    {
+        "key": "group_5566a89026415",
+        "title": "Contact",
+        "fields": [
+            {
+                "key": "field_5566a894e1ec7",
+                "label": "Agences",
+                "name": "contact_agencies",
+                "type": "repeater",
+                "instructions": "Saisissez les coordonn\u00e9es de chaque agence TOA.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "layout": "row",
+                "button_label": "Ajouter une agence",
+                "sub_fields": [
+                    {
+                        "key": "field_5566a8bee1ec8",
+                        "label": "Zone g\u00e9ographique de l'agence",
+                        "name": "zone",
+                        "type": "text",
+                        "instructions": "Permettre en un clin d'\u0153il de situer l'agence g\u00e9ographiquement. Exemples : Paris, Strasbourg\u2026",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 150,
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566a931e1ec9",
+                        "label": "Adresse : num\u00e9ro et rue",
+                        "name": "address_street",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 500,
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566aabdb51e6",
+                        "label": "Adresse : compl\u00e9ment",
+                        "name": "address_secundary",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566aa6cb51e5",
+                        "label": "Adresse : code postal",
+                        "name": "address_postcode",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": 99999,
+                        "step": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566aaf2b51e7",
+                        "label": "Adresse : ville",
+                        "name": "address_city",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566a95de1eca",
+                        "label": "Num\u00e9ro de t\u00e9l\u00e9phone",
+                        "name": "phone",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 20,
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566a96ce1ecb",
+                        "label": "Num\u00e9ro de fax",
+                        "name": "fax",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 20,
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5566af9ad5948",
+                        "label": "Image",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "gallery-project",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    }
+                ],
+                "collapsed": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "toa-template-contact.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "discussion",
+            "comments",
+            "format",
+            "page_attributes",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_556b1a347a16f",
+        "title": "Distinctions",
+        "fields": [
+            {
+                "key": "field_556b22adf2e09",
+                "label": "Titre de la page",
+                "name": "distinctions_title",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Des projets r\u00e9compens\u00e9s",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": 200,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_556b1a3e7845e",
+                "label": "Citation",
+                "name": "distinctions_quote",
+                "type": "textarea",
+                "instructions": "Ne pas saisir les guillemets\u00a0: ils seront g\u00e9n\u00e9r\u00e9s en CSS.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "wpautop",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_556b1a8c3874d",
+                "label": "Phrase introductive",
+                "name": "distinctions_intro_sentence",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "L\u2019agence a obtenu de nombreuses distinctions :",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_556b1ab03874e",
+                "label": "D\u00e9tail des distinctions",
+                "name": "distinctions_awards",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "layout": "row",
+                "button_label": "Ajouter un \u00e9l\u00e9ment",
+                "sub_fields": [
+                    {
+                        "key": "field_556b1afd3874f",
+                        "label": "Ann\u00e9e",
+                        "name": "year",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": 1900,
+                        "max": 2500,
+                        "step": 1,
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_556b209538750",
+                        "label": "Intitul\u00e9 du prix",
+                        "name": "award",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 500,
+                        "readonly": 0,
+                        "disabled": 0
+                    }
+                ],
+                "collapsed": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "toa-template-distinctions.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "discussion",
+            "format",
+            "categories",
+            "tags"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_556c0c4e14d62",
+        "title": "Dossiers de presse",
+        "fields": [
+            {
+                "key": "field_556c0c5238ba4",
+                "label": "Dossier de presse",
+                "name": "press_release_pdf",
+                "type": "file",
+                "instructions": "Formats accept\u00e9s : pdf, zip, rar, jpg, jpeg, doc, docx, png",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "pdf, zip, rar, jpg, jpeg, doc, docx, png"
+            },
+            {
+                "key": "field_556c0dbf64a9d",
+                "label": "Photo",
+                "name": "press_release_picture",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_taxonomy",
+                    "operator": "==",
+                    "value": "type_presse:dossiers-de-presse"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_55768d50660c7",
+        "title": "\u00c9quipe : collaborateurs",
+        "fields": [
+            {
+                "key": "field_55768dad703f8",
+                "label": "Titre",
+                "name": "equipe_partner_position",
+                "type": "text",
+                "instructions": "Fonction du collaborateur au sein de TOA. Exemples\u00a0: Architecte associ\u00e9, Architecte\u2026",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55768e14f9475",
+                "label": "Ville",
+                "name": "equipe_partner_city",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55768efdf9477",
+                "label": "Photo de profil",
+                "name": "equipe_partner_picture",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_55768d58703f7",
+                "label": "Ce collaborateur est-il un associ\u00e9\u00a0?",
+                "name": "equipe_partner_associate",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0
+            },
+            {
+                "key": "field_55768f12f9478",
+                "label": "Galerie 2 photos",
+                "name": "equipe_partner_gallery",
+                "type": "gallery",
+                "instructions": "S\u00e9lectionner les deux photos qui seront affich\u00e9es en haut de page.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_55768d58703f7",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": 2,
+                "max": 2,
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_55769cacfa883",
+                "label": "Une fiert\u00e9 ?",
+                "name": "equipe_partner_most_proud",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_55768d58703f7",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_55769cf3fa884",
+                "label": "Un projet marquant\u00a0?",
+                "name": "equipe_partner_highlight",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_55768d58703f7",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_55769d27fa885",
+                "label": "Pour vous, l'architecture c'est\u2026",
+                "name": "equipe_partner_vision",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_55768d58703f7",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "equipe"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5576a0d9e3a6f",
+        "title": "\u00c9quipe\u00a0: trombinoscope\/options",
+        "fields": [
+            {
+                "key": "field_5576a0ef9a2bf",
+                "label": "Titre de la page",
+                "name": "equipe_trombi",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "De Paris \u00e0 Strasbourg, l\u2019\u00e9quipe TOA architectes associ\u00e9s",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_5582caf8ff2be",
+                "label": "Titre de la section \u00ab\u00a0Ont particip\u00e9 \u00bb",
+                "name": "equipe_gone_title",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_5582c8eab3dc7",
+                "label": "Contenu de la section \u00ab\u00a0Ont particip\u00e9\u00a0\u00bb",
+                "name": "equipe_gone",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "br",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-equipe"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_556c17f93e93d",
+        "title": "Espace presse",
+        "fields": [
+            {
+                "key": "field_556c1955223c3",
+                "label": "Description",
+                "name": "press_description",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": 500,
+                "rows": "",
+                "new_lines": "br",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_556c186538422",
+                "label": "Vers quoi le titre de cet \u00e9l\u00e9ment doit-il mener\u00a0?",
+                "name": "press_click_type",
+                "type": "radio",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "file": "Fichier",
+                    "url": "Lien externe",
+                    "nothing": "Rien (pas de lien)"
+                },
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "",
+                "layout": "vertical"
+            },
+            {
+                "key": "field_556c17fedd1e2",
+                "label": "Fichier",
+                "name": "press_file",
+                "type": "file",
+                "instructions": "Formats accept\u00e9s : pdf, zip, rar, jpg, jpeg, doc, docx, png",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_556c186538422",
+                            "operator": "==",
+                            "value": "file"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "pdf, zip, rar, jpg, jpeg, doc, docx, png"
+            },
+            {
+                "key": "field_556c1842caaab",
+                "label": "Lien externe",
+                "name": "press_external_link",
+                "type": "url",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_556c186538422",
+                            "operator": "==",
+                            "value": "url"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "presse"
+                },
+                {
+                    "param": "post_taxonomy",
+                    "operator": "!=",
+                    "value": "type_presse:dossiers-de-presse"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_556d75753ac82",
+        "title": "Identit\u00e9",
+        "fields": [
+            {
+                "key": "field_556d758996ab1",
+                "label": "Accroche",
+                "name": "about_catch_phrase",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "\u00c0 l\u2019origine, une histoire d\u2019amiti\u00e9",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_556d75b096ab2",
+                "label": "Contenus de la page",
+                "name": "about_structure",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "button_label": "Ajouter un \u00e9l\u00e9ment",
+                "min": "",
+                "max": "",
+                "layouts": [
+                    {
+                        "key": "556d75e88eda8",
+                        "name": "about_picture",
+                        "label": "Photo",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_556d762496ab3",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "556d764c96ab4",
+                        "name": "about_paragraph_important",
+                        "label": "Paragraphe mis en avant",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_556d766196ab5",
+                                "label": "Texte",
+                                "name": "text",
+                                "type": "textarea",
+                                "instructions": "Ce texte sera affich\u00e9 beaucoup plus gros que les autres. Utile pour mettre en valeur une id\u00e9e forte.",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "maxlength": "",
+                                "rows": "",
+                                "new_lines": "wpautop",
+                                "readonly": 0,
+                                "disabled": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "556d769896ab6",
+                        "name": "about_list",
+                        "label": "Liste de valeurs",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_556d798d7dd60",
+                                "label": "Valeur",
+                                "name": "value",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "min": "",
+                                "max": "",
+                                "layout": "table",
+                                "button_label": "Ajouter une valeur",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_556d799b7dd61",
+                                        "label": "Titre",
+                                        "name": "title",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_556d79a37dd62",
+                                        "label": "Description",
+                                        "name": "desc",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "maxlength": "",
+                                        "rows": "",
+                                        "new_lines": "br",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    }
+                                ],
+                                "collapsed": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "556d76f896ab9",
+                        "name": "about_paragraph",
+                        "label": "Paragraphe simple",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_556d771a96aba",
+                                "label": "Texte",
+                                "name": "text",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "maxlength": "",
+                                "rows": "",
+                                "new_lines": "wpautop",
+                                "readonly": 0,
+                                "disabled": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "toa-template-identite.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_557061315b705",
+        "title": "Options",
+        "fields": [
+            {
+                "key": "field_55a616415efd8",
+                "label": "Page d'accueil",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_55a6164a5efd9",
+                "label": "Projets \u00e0 afficher sur la page d'accueil",
+                "name": "homepage_projects",
+                "type": "post_object",
+                "instructions": "S\u00e9lectionner les cinq projets \u00e0 afficher sur la page d'accueil. Il est possible de r\u00e9organiser les projets en les glissant\/d\u00e9posant. NB : seuls les cinq premiers projets seront effectivement affich\u00e9s, il est inutile d'en s\u00e9lectionner davantage.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "projet"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_55a616935efda",
+                "label": "Page Contact",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_55706137c8afa",
+                "label": "Page Contact",
+                "name": "contact_page",
+                "type": "page_link",
+                "instructions": "S\u00e9lectionner la page Contact du site : son adresse sera utilis\u00e9e sur la page 404.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0
+            },
+            {
+                "key": "field_5697c4bb4b5b0",
+                "label": "Carte de v\u0153ux",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5697c4c34b5b1",
+                "label": "Afficher la carte de v\u0153ux sur la page d'accueil\u00a0?",
+                "name": "display_greeting_card",
+                "type": "radio",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "oui": "Oui",
+                    "non": "Non"
+                },
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "non",
+                "layout": "horizontal"
+            },
+            {
+                "key": "field_5697c50d4b5b2",
+                "label": "Image de la carte de v\u0153ux",
+                "name": "display_greeting_card_img",
+                "type": "image",
+                "instructions": "Format JPG, PNG ou GIF. Poids maxi\u00a0: 1Mo.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium_large",
+                "library": "all",
+                "min_width": 1280,
+                "min_height": "",
+                "min_size": "",
+                "max_width": 2560,
+                "max_height": "",
+                "max_size": 1,
+                "mime_types": "jpg, jpeg, gif, png"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "theme-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_555300490c0e9",
+        "title": "Projet",
+        "fields": [
+            {
+                "key": "field_55a617f15f3a4",
+                "label": "Afficher ce projet sur la page d'accueil\u00a0?",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Pour modifier les projets affich\u00e9s sur la page d'accueil, veuillez d\u00e9sormais passer par la page \u00ab\u00a0Options\u00a0\u00bb du th\u00e8me.",
+                "esc_html": 0,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_55791e9ab5be3",
+                "label": "Afficher ce projet sur la page \u00ab\u00a0Projets\u00a0\u00bb (filtres)\u00a0?",
+                "name": "project_feature_listing",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0
+            },
+            {
+                "key": "field_5553502fd9342",
+                "label": "Image d'arri\u00e8re-plan",
+                "name": "project_background",
+                "type": "image",
+                "instructions": "S\u00e9lectionnez l'image \u00e0 utiliser comme arri\u00e8re-plan sur la page d'accueil lorsque ce projet sera survol\u00e9.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_555305864141e",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_55791e9ab5be3",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_555305cf4d656",
+                "label": "Lieu",
+                "name": "project_place",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_555305eba988d",
+                "label": "Ann\u00e9e de d\u00e9but",
+                "name": "project_year_start",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1950,
+                "max": 3000,
+                "step": 1,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_555323ebdca33",
+                "label": "Ann\u00e9e de fin",
+                "name": "project_year_end",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1950,
+                "max": 3000,
+                "step": 1,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_5553060d9d454",
+                "label": "Statut",
+                "name": "project_status",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "complete": "R\u00e9alis\u00e9",
+                    "processing": "En cours"
+                },
+                "default_value": {
+                    "complete": "complete"
+                },
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            },
+            {
+                "key": "field_5553004ec41e3",
+                "label": "Accroche",
+                "name": "project_catch_phrase",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_5553055244c0a",
+                "label": "En quelques mots",
+                "name": "project_lead_in",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "br",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55532436c5148",
+                "label": "Norme",
+                "name": "project_norm",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": 300,
+                "rows": "",
+                "new_lines": "br",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55532421c5147",
+                "label": "M\u00e9dailles",
+                "name": "project_awards",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": 300,
+                "rows": "",
+                "new_lines": "br",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55534ac038fa1",
+                "label": "Structure de la page",
+                "name": "project_structure",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "button_label": "Ajouter un bloc",
+                "min": 2,
+                "max": "",
+                "layouts": [
+                    {
+                        "key": "55534e66dab72",
+                        "name": "project_layout_image",
+                        "label": "Bloc image",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_55534e76dab73",
+                                "label": "Image",
+                                "name": "project_image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": 1750,
+                                "min_height": 720,
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "55534e8cdab74",
+                        "name": "project_gallery_2cols",
+                        "label": "Bloc galerie 2 colonnes",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_55534e9ddab75",
+                                "label": "Galerie",
+                                "name": "project_gallery2",
+                                "type": "gallery",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "min": 2,
+                                "max": 2,
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "555350f891ccf",
+                        "name": "project_gallery_4cols",
+                        "label": "Bloc galerie 4 colonnes",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_555350f891cd0",
+                                "label": "Galerie",
+                                "name": "project_gallery4",
+                                "type": "gallery",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "min": 4,
+                                "max": 4,
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "55534dfcc69ee",
+                        "name": "project_layout_text",
+                        "label": "Bloc texte",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_55534dfcc69f4",
+                                "label": "Texte WYSIWYG",
+                                "name": "project_wysiwyg",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "basic",
+                                "media_upload": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "55534ad05f9c1",
+                        "name": "project_layout_quote",
+                        "label": "Bloc citation",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_55534b0e38fa2",
+                                "label": "Citation",
+                                "name": "project_quote_content",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "maxlength": 1000,
+                                "rows": "",
+                                "new_lines": "br",
+                                "readonly": 0,
+                                "disabled": 0
+                            },
+                            {
+                                "key": "field_55534ba438fa3",
+                                "label": "Auteur\u00b7e de la citation",
+                                "name": "project_quote_author",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": "",
+                                "readonly": 0,
+                                "disabled": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "5555b51dae2a0",
+                        "name": "project_layout_video",
+                        "label": "Bloc vid\u00e9o",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_5555b52bae2a1",
+                                "label": "URL de la vid\u00e9o",
+                                "name": "project_video_url",
+                                "type": "url",
+                                "instructions": "Saisir l'URL avec <code>http:\/\/<\/code> ou <code>https:\/\/<\/code>",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_55532477c514a",
+                "label": "Fiche technique",
+                "name": "project_technical_details",
+                "type": "repeater",
+                "instructions": "Saisissez autant d'informations que vous le souhaitez. Pour chaque information : un titre et un contenu, tous deux obligatoires. Vous pouvez r\u00e9organiser les lignes en survolant les num\u00e9ros situ\u00e9s \u00e0 leur gauche.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "layout": "table",
+                "button_label": "Ajouter un \u00e9l\u00e9ment",
+                "sub_fields": [
+                    {
+                        "key": "field_5553271ec514b",
+                        "label": "D\u00e9tail technique",
+                        "name": "project_detail_title",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_55534356c514c",
+                        "label": "Contenu",
+                        "name": "project_detail_content",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    }
+                ],
+                "collapsed": ""
+            },
+            {
+                "key": "field_55532448c5149",
+                "label": "Dossier de presse",
+                "name": "project_pdf",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_size": "",
+                "max_size": 2,
+                "mime_types": "pdf"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "projet"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "discussion",
+            "comments",
+            "format",
+            "page_attributes",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_556424ad19619",
+        "title": "Recrutement : liste\/options",
+        "fields": [
+            {
+                "key": "field_556424c6d9c8b",
+                "label": "Titre de la page \u00ab\u00a0Recrutement \u00bb",
+                "name": "recrutement_archive_title",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_556424dcf0a93",
+                "label": "Visuel",
+                "name": "recrutement_picture",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg, png"
+            },
+            {
+                "key": "field_55646905038e6",
+                "label": "Adresse(s) email de r\u00e9ception des candidatures",
+                "name": "recrutement_email",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": 1,
+                "max": "",
+                "layout": "table",
+                "button_label": "Ajouter une adresse email",
+                "sub_fields": [
+                    {
+                        "key": "field_5580560cb066e",
+                        "label": "Adresse email",
+                        "name": "email_address",
+                        "type": "email",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    }
+                ],
+                "collapsed": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-recrutement"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_55641b53d5e33",
+        "title": "Recrutement : offre d'emploi",
+        "fields": [
+            {
+                "key": "field_55641b585c1fc",
+                "label": "Contenu de la page",
+                "name": "recrutement_content",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "button_label": "Ajouter un \u00e9l\u00e9ment",
+                "min": "",
+                "max": "",
+                "layouts": [
+                    {
+                        "key": "55641c395c200",
+                        "name": "recrutement_layout_title_list",
+                        "label": "Bloc titre + liste",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_55641c535c201",
+                                "label": "Titre",
+                                "name": "recrutement_list_title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": "",
+                                "readonly": 0,
+                                "disabled": 0
+                            },
+                            {
+                                "key": "field_55641c765c202",
+                                "label": "Liste",
+                                "name": "recrutement_list",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "min": "",
+                                "max": "",
+                                "layout": "table",
+                                "button_label": "Ajouter un \u00e9l\u00e9ment",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_55641c865c203",
+                                        "label": "\u00c9l\u00e9ment de liste",
+                                        "name": "recrutement_list_item",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    }
+                                ],
+                                "collapsed": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "55641b7bcb752",
+                        "name": "recrutement_layout_title_text",
+                        "label": "Bloc texte",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_55641bc25c1fd",
+                                "label": "Titre",
+                                "name": "recrutement_text_title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": "",
+                                "readonly": 0,
+                                "disabled": 0
+                            },
+                            {
+                                "key": "field_55641c0d5c1fe",
+                                "label": "Texte",
+                                "name": "recrutement_text",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "basic",
+                                "media_upload": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "recrutement"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

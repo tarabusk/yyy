@@ -1,0 +1,70 @@
+/* # Déclarations des polices */
+
+@at-root 
+{
+	/**
+	 * SabonLT-Roman
+	 */
+
+	@include font-face(
+		'SabonLT-Roman',
+		font-files('sabon-smooth-hinting.woff2', woff2,
+		'sabon-smooth-hinting.woff', woff,
+		'sabon-smooth-hinting.ttf', opentype),
+		$eot: 'sabon-smooth-hinting.eot',
+		$style: normal,
+		$weight: normal
+	);
+
+
+	// @include font-face(
+	// 	'SabonLT-Roman',
+	// 	font-files('sabon-smooth-hinting.eot', eot), 
+	// 	$style: normal,
+	// 	$weight: normal
+	// );
+
+
+	// @include font-face(
+	// 	'SabonLT-Roman',
+	// 	inline-font-files(
+	// 		'sabon-smooth-hinting.woff', woff,
+	// 		'sabon-smooth-hinting.ttf', truetype
+	// 	), 
+	// 	$style: normal,
+	// 	$weight: normal
+	// );
+
+
+	/**
+	 * Larsseit
+	 */
+	@include font-face(
+		'Larsseit',
+		font-files('larsseit-smooth-hinting.woff2', woff2,
+		'larsseit-smooth-hinting.woff', woff,
+		'larsseit-smooth-hinting.ttf', opentype),
+		$eot: 'larsseit-smooth-hinting.eot',
+		$style: normal,
+		$weight: normal
+	);
+
+	// @include font-face(
+	// 	'Larsseit',
+	// 	font-files('larsseit-smooth-hinting.eot', eot), 
+	// 	$style: normal,
+	// 	$weight: normal
+	// );
+
+	// @include font-face(
+	// 	'Larsseit',
+	// 	inline-font-files(
+	// 		'larsseit-smooth-hinting.woff', woff,
+	// 		'larsseit-smooth-hinting.ttf', truetype
+	// 	), 
+	// 	$style: normal,
+	// 	$weight: normal
+	// );	
+}
+
+

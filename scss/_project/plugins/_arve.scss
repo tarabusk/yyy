@@ -1,0 +1,10 @@
+/* # ARVE plugin */
+
+@at-root 
+{
+	.arve-wrapper + p,
+	.arve-hidden
+	{
+		display: none !important;
+	}
+}

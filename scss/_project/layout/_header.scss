@@ -1,0 +1,450 @@
+/* # Styles spécifiques à la tête de page */
+
+@at-root 
+{
+	%#{$smash-prefix-project}-header-footer
+	{
+		.#{$smash-prefix-framework}-grid-container
+		{
+			padding-top: smash-size( $smash-lh, $smash-fs0, "em");
+			padding-bottom: smash-size( $smash-lh, $smash-fs0, "em");
+		}
+
+		/**
+		 * Active menu links
+		 */
+		.current-menu-item,
+		.current_page_item,
+		.current-menu-item,
+		.current-post-ancestor,
+		.current-category-ancestor
+		{
+			> a
+			{
+				@include smash-text-decoration($start: 96%, $height: 4%);
+
+				// .#{$smash-prefix-project}-layout-dark &
+				// {
+				// 	@include text-shadow(none);
+				// }
+			}
+		}
+	}
+}
+
+// Main header
+&-header
+{ 
+	@extend %#{$smash-prefix-project}-header-footer;
+
+	//
+	// Setting up the fluid grid
+	//
+	@extend %layout-fluid;
+	margin-bottom: 0;
+	
+	
+	.#{$smash-prefix-framework}-grid-container
+	{
+		@include box-shadow(0 1px $smash-silver);
+	}
+
+
+	// Header inner container
+	&_content
+	{
+
+		//
+		// Smaller screens
+		//
+
+		@include mq($until: desktop)
+		{
+			@include smash-clearfix;
+		}
+
+
+		//
+		// Desktop + larger screens: fluid grid.
+		//
+
+		@extend %layout-fluid-content;
+	}
+
+
+	//
+	// Site title
+	//
+
+	&-title
+	{
+		> * 
+		{
+			@include smash-typo(18px);
+			margin-bottom: 0;
+		}
+
+
+		// 
+		// Desktop
+		//
+
+		@extend %layout-fluid-col-desktop;
+
+
+		//
+		// Larger screens
+		//
+
+		@extend %layout-fluid-col-bigger;
+
+	}
+
+	// Main nav
+	&-nav
+	{
+		// 
+		// Desktop
+		//
+
+		@extend %layout-fluid-col2-desktop;
+
+		@include mq(desktop)
+		{
+			text-align: right;
+		}
+
+	
+		//
+		// Larger screens
+		//
+
+		@extend %layout-fluid-col3-bigger;
+
+
+		// Nav toggle button (on mobile)
+		&_toggle
+		{
+			
+			@include mq($until: desktop)
+			{
+				//
+				// Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+				// down to center and transform into an "x".
+				//
+
+				$button-width: 24px;
+				$button-height: $smash-lh-smaller;
+				$bar-thickness: 2px;
+				$button-pad: 0;
+				$button-trans-delay: 0.3s;
+
+				display: block;
+				position: absolute;
+				top: smash-size( $smash-lh, $smash-fs0, "em");
+				right: smash-size( $smash-gutter-smaller );
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+				width: smash-size( $button-width );
+				height: smash-size( $button-height );
+				@include appearance(none);
+				@include box-shadow(none);
+				@include border-radius(none);
+				border: none;
+				cursor: pointer;
+				//@include text-shadow(none);
+				line-height: normal;
+				z-index: 29;
+
+				span
+				{
+					display: block;
+					position: absolute;
+					top: smash-size( ($button-height / 2) - ($bar-thickness / 2) );
+					left: smash-size( $button-pad );
+					right: smash-size( $button-pad );
+					height: smash-size( $bar-thickness );
+					//@include transition(background $button-trans-delay);
+
+					span 
+					{
+						@include smash-visually-hidden;
+					}
+
+					&,
+					&:before,
+					&:after
+					{
+						background-color: $smash-mineshaft;
+
+						.#{$smash-prefix-project}-layout-dark &
+						{
+							background-color: $smash-white;
+						}
+					}
+
+					&:before,
+					&:after
+					{
+						content: "";
+						position: absolute;
+						display: block;
+						left: 0;
+						width: 100%;
+						height: smash-size( $bar-thickness );
+						@include transition-duration($button-trans-delay);
+
+						// Attempt to fix a Firefox 38.0.5 bug
+						//@include box-shadow(1px 1px 4px $smash-mineshaft);
+					}
+
+					&:before
+					{
+						//top: smash-size( -(($button-height / 2) - ($bar-thickness / 2) - $button-pad) );
+						top: smash-size( -8px );
+						@include transition-property(top, transform);
+					}
+
+					&:after
+					{
+						//bottom: smash-size( -(($button-height / 2) - ($bar-thickness / 2) - $button-pad) );
+						bottom: smash-size( -8px );
+						@include transition-property(bottom, transform);
+					}
+				}
+
+
+				/* active state, i.e. menu open */
+
+				.is-active &
+				{
+					span
+					{
+						background: none;
+
+						&:before
+						{
+							top: 0;
+							@include transform(rotate(45deg));
+						}
+
+						&:after
+						{
+							bottom: 0;
+							@include transform(rotate(-45deg));
+						}
+
+						&:before,
+						&:after 
+						{
+							background-color: $smash-white;
+						}
+
+					}
+				}
+			}
+
+
+			//
+			// Let's hide the toggle button on desktop and larger screens 
+			//
+
+			@include mq(desktop)
+			{
+				display: none;
+			}
+		}
+
+		&_content
+		{
+			@include mq($until: desktop)
+			{
+				.js &
+				{
+					display: none;
+				}
+
+				.#{$smash-prefix-project}-header-nav.is-active &
+				{
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+
+					padding: smash-size( $smash-body-margin-smaller );
+					background-color: $smash-mobile-menu;
+					color: $smash-white;
+					z-index: 9;
+
+					// a 
+					// {
+					// 	@include text-shadow(none);
+					// }
+
+				}
+			}
+		}
+
+		&_list
+		{
+			margin-bottom: 0;
+
+			@include mq($until: desktop)
+			{
+				.menu-item + .menu-item
+				{
+					margin-top: smash-size( $smash-lh-smaller, 16px, "em" );	
+				}
+			}
+
+
+			@include mq(desktop)
+			{
+				@include smash-list-inline-block();
+				//@include smash-list-inline-block-margin();
+
+				.menu-item + .menu-item 
+				{
+					margin-left: smash-size($smash-gutter);
+				}
+
+
+				//
+				// Edge case for the "Projects" menu item on desktop and wide
+				//
+
+				.menu-item-object-projet
+				{
+					$item_width: 70px;
+
+					width: 100vh;
+					height: smash-size($item_width);
+
+					transform: rotate(-90deg) /*translateX(-100%)*/; // prefixes will be taken in charge by Autoprefixer
+					transform-origin: 100% 100%;
+					right: 0;
+
+					position: fixed;
+					top: smash-size($item_width*-1);
+					color: $smash-white;
+					text-align: center;
+
+					> a
+					{
+						display: block;
+						height: smash-size($item_width);
+						line-height: smash-size($item_width);
+						padding-top: 0;
+						padding-bottom: 0;
+						text-transform: lowercase;
+						background: $smash-project-link;
+						@include transition(background-color $smash-duration);
+						//@include text-shadow(none);
+						color: $smash-white;
+
+						// Avoid IE9 and .no-cssgradients browsers to underline
+						// this link when it's active
+						text-decoration: none !important;
+						//
+						
+
+
+						// Hacky fix until Firefox fixes the animation related outline bug.
+						outline-color: transparent;
+						//
+
+						&::first-letter
+						{
+							text-transform: uppercase;
+						}
+
+						&:before
+						{
+							content: "Découvrez nos ";
+
+						}
+
+						&:after
+						{
+							$item_value: $smash-lh*3;
+
+							content: "+";
+							display: block;
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: smash-size($item_value, $smash-txt-alpha, $smash-unit: "em");
+							height: smash-size($item_width, $smash-txt-alpha, $smash-unit: "em");
+							font-size: smash-size($smash-txt-alpha, $smash-txt-beta, $smash-unit: "em");
+							line-height: smash-size($item_width, $smash-txt-alpha, "em");
+							background: none;
+							text-decoration: none;
+							color: inherit;
+							
+							font-family: "Times New Roman", serif;
+							@include transition(500ms);
+
+							// bugfix Firefox 38.0.1
+							@include transform(translateZ(0));
+
+							// bugfix Chrome 
+							// wonky, cripsy image during the opacity transition
+							// cf. http://css-tricks.com/almanac/properties/b/backface-visibility/
+							backface-visibility: hidden;
+							-webkit-font-smoothing: antialiased;
+							//outline: 1px solid transparent;
+
+
+
+						}
+
+						&:focus,
+						&:hover,
+						&:active
+						{
+							color: $smash-white;
+							background-color: lighten($smash-project-link, 3);
+							background-image: none;
+							//@include text-shadow(none);
+
+							.no-cssgradients &
+							{
+								text-decoration: none;
+							}
+						}
+
+						&:focus,
+						&:active
+						{
+							@at-root 
+							{
+								@include keyframes(infinite-rotating) {
+									from { @include transform(rotate(0deg)); }
+									to { @include transform(rotate(360deg)); }
+								};
+							}
+
+							&:after 
+							{
+								@include animation(infinite-rotating 500ms infinite linear);
+							}
+							
+						}
+
+						&:hover 
+						{
+							&:after 
+							{
+								@include transform(rotate(180deg));
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+}

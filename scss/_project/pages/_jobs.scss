@@ -1,0 +1,60 @@
+/* # Styles spécifiques pour la rubrique Recrutement */
+
+&-jobs
+{
+	&-list 
+	{
+		.#{$smash-prefix-framework}-grid-container + .#{$smash-prefix-project}-section
+		{
+			margin-top: smash-size( $smash-lh );
+		}
+	}
+
+	p 
+	{
+		margin-bottom: 0;
+	}
+
+	&-list
+	{
+		margin-bottom: 0;
+	}
+
+	&-list_item
+	{
+		@include mq(desktop)
+		{
+			margin-bottom: smash-size( $smash-lh*2 );
+			
+			@at-root 
+			{
+				.#{$smash-prefix-project}-jobs-related &
+				{
+					margin-bottom: 0;
+				}
+			}
+		}
+
+	}
+
+
+	&-list_title
+	{
+		margin-bottom: smash-size( $smash-lh/2 );
+
+		// a 
+		// {
+		// 	@extend %link-pretty-underline-hover;
+		// }
+
+	}
+
+	&-related
+	{
+
+	}
+
+}
+
+
+

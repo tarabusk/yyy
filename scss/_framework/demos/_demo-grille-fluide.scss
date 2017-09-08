@@ -1,0 +1,116 @@
+/* # Démo : grilles fluides */
+
+/* [Voir le résultat](../demos/grille-fluide.html). */
+
+/* # Variables */
+
+/*
+ - `$demo-sidebar` :        largeur en colonnes pour le contenu secondaire ;
+ - `$demo-content` :        largeur en colonnes pour le contenu principal ;
+ - `$demo-content-inside` : largeur en colonnes pour les colonnes de la grille dans le contenu principal.
+*/
+
+// $demo-content:        6;
+// $demo-content-inside: 2;
+// $demo-sidebar:        4;
+
+/* # Grille fluide sans isolation */
+
+// &-grid
+// {
+
+/* Des gouttières externes sont ajoutées si nécessaire. */
+
+  // @if $smash-external-gutters
+  // {
+  //   padding-left:  smash-size($smash-gutter);
+  //   padding-right: smash-size($smash-gutter); 
+  // }
+
+/* La largeur maximale de la grille est calculée (avec l’unité préférée du projet). */
+
+  // &.smash-center
+  // {
+  //   @include smash-grid-center;
+  // }
+  
+/* Une fois la grille centrée, elle embarque un autre conteneur sur lequel sont appliquées des marges négatives. */
+  
+  // &_inside
+  // {
+  //   @include smash-grid-fluid;
+  // }
+  
+/* On ne souhaite pas appliquer l’isolation : le deuxième paramètre est à `null` ou absent. */
+  
+  // &_content
+  // {
+  //   @include smash-grid-fluid-col($demo-content);
+  // }
+  // &_sidebar
+  // {
+  //   @include smash-grid-fluid-col($demo-sidebar);
+  // }
+  
+/* Une grille est imbriquée dans le contenu principal. Elle hérite de la largeur de celui-ci. */
+
+  // &-content
+  // {
+  //   @include smash-grid-fluid($demo-content);
+    
+/* Les colonnes de la grille imbriquée héritent aussi de la largeur du contenu principal. */
+
+/* On ne souhaite pas appliquer l’isolation : le deuxième paramètre est à `null` ou absent. */
+    
+//     &_col
+//     {
+//       @include smash-grid-fluid-col($demo-content-inside, null, $demo-content);      
+//     }
+//   }
+// }
+
+/* # Grille fluide avec isolation */
+
+/* http://www.palantir.net/blog/responsive-design-s-dirty-little-secret */
+
+// &-grid-iso
+// {
+
+//   @if $smash-external-gutters
+//   {
+//     padding-left:  smash-size($smash-gutter);
+//     padding-right: smash-size($smash-gutter); 
+//   }
+  
+//   &.smash-center
+//   {
+//     @include smash-grid-center;
+//   }
+//   &_inside
+//   {
+//     @include smash-grid-fluid;
+//   }
+  
+/* On souhaite appliquer l’isolation : le deuxième paramètre est renseigné et indique la position de chaque bloc. */
+  
+  // &_content
+  // {
+  //   @include smash-grid-fluid-col($demo-content, 1);
+  // }
+  // &_sidebar
+  // {
+  //   @include smash-grid-fluid-col($demo-sidebar, $demo-content + 1);
+  // }
+  // &-content
+  // {
+  //   @include smash-grid-fluid($demo-content);
+    
+  //   &_col
+  //   {
+          
+/* Un `mixin` permet de profiter des comportements flottants tout en appliquant l’isolation. */
+
+//       @include smash-grid-fluid_cols($demo-content-inside, $demo-content);
+//     }
+//   }
+// }

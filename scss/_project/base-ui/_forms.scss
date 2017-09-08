@@ -1,0 +1,418 @@
+/* # Formulaires */
+
+@at-root
+{
+
+	// ---------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * OUTLINE
+	 */
+
+	// a,
+	// input,
+	// select,
+	// textarea,
+	// button
+	// {
+	// 	&:focus
+	// 	{
+	// 		// Prevent the fugly blue outline on Webkit browsers
+	// 		outline: 1px dotted $smash-silver;
+	// 	}
+	// }
+
+	// ---------------------------------------------------------------------------------------------------------------------
+
+	/* Remove IE10 image cross that appears when focusing inputs */
+	input::-ms-clear
+	{
+		display: none;
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * PLACEHOLDERS
+	 * @link http://css-tricks.com/snippets/css/style-placeholder-text/
+	 * @link https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-placeholder
+	 */
+	
+	::-webkit-input-placeholder
+	{
+		color: $smash-mineshaft;
+
+		.gfield_error &
+		{
+			color: $smash-error;
+		}
+	}
+
+	::-moz-placeholder
+	{
+		/* Firefox 19+ */
+		color: $smash-mineshaft;
+
+		.gfield_error &
+		{
+			color: $smash-error;
+		}
+	}
+
+	:-ms-input-placeholder
+	{
+		color: $smash-mineshaft;
+
+		.gfield_error &
+		{
+			color: $smash-error;
+		}
+	}
+
+
+	// ---------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * DEFAULT FORM ELEMENTS
+	 */
+
+	form 
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;
+
+		@include mq($until: desktop)
+		{
+			@include smash-typo($smash-txt-epsilon, $smash-fs0-smaller, $smash-unit: "em");
+		}
+
+		@include mq(desktop)
+		{
+			@include smash-typo($smash-txt-delta);
+		}
+		//@extend %#{$smash-prefix-project}-smash-txt-delta;
+	}
+
+	button 
+	{
+		@include inline-block(top);
+		background-color: transparent;
+		padding: 0;
+		border: 0;
+		text-align: left;
+		cursor: pointer;
+	}
+
+	input[type="submit"],
+	input[type="button"]
+	{
+		@include inline-block(top);
+		width: auto;
+		text-align: left;
+		border: 0;
+		padding: smash-size( $smash-lh/2, $smash-txt-delta, "em") 0;
+		color: inherit;
+		background-color: transparent;
+	}
+
+	input,
+	select,
+	textarea
+	{
+		display: block;
+		width: 100%;
+		font-size: inherit;
+		line-height: inherit;
+		font-family: inherit;
+		background-color: inherit;
+		padding-top: smash-size( $smash-lh/2, $smash-txt-delta, "em");
+		padding-bottom: smash-size( $smash-lh/2, $smash-txt-delta, "em");
+
+
+	}
+
+	select 
+	{
+		@include appearance(none);
+		@include border-radius(0);
+		border: 1px solid $smash-mineshaft;
+
+
+
+
+		// Image 
+
+		$img_src:   "bg/arrow-down_bl@3x.png";
+		$img_width: image-width($img_src);
+		$img_height: image-height($img_src);
+
+		background-image: image-url('bg/arrow-down_bl@3x.png');
+		background-position: 95% 50%;
+		@include background-size($img_width/3 $img_height/3);   
+
+		.ie9 &
+		{
+			background: none;	
+		}
+
+		//
+
+		@include mq($until: large)
+		{
+			padding-right: smash-size( $smash-gutter/4, $smash-txt-delta, "em");
+			padding-left: smash-size( $smash-gutter/4, $smash-txt-delta, "em"); 
+		}       
+
+		@include mq(large)
+		{
+			padding-right: smash-size( $smash-gutter/2, $smash-txt-delta, "em");
+			padding-left: smash-size( $smash-gutter/2, $smash-txt-delta, "em"); 
+		}
+
+	}
+
+
+	input[type="file"],
+	select
+	{
+		border: 1px solid $smash-mineshaft;
+	}
+
+	input,
+	textarea
+	{
+		border: 0;
+	}
+
+	input[type="file"]
+	{
+		
+	}
+
+	input[type="radio"],
+	input[type="checkbox"]
+	{
+		@include inline-block(top);
+		width: auto;
+	}
+
+	textarea
+	{
+		height: smash-size( $smash-lh*4 );
+	}
+
+
+	// ---------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * GRAVITY FORMS ELEMENTS
+	 */
+
+	.gfield
+	{
+		margin-bottom: smash-size( $smash-lh, $smash-txt-delta, "em");
+	}
+
+	.gfield_label
+	{
+		display: block;
+		margin-bottom: smash-size( $smash-lh/2, $smash-txt-delta, "em");
+	}
+
+	/**
+	 * Gravity hide labels in an accessible way
+	 */
+
+	.#{$smash-prefix-project}-form-hide-label
+	{
+		.gfield_label
+		{
+			@extend %visually-hidden;
+		}
+	}
+
+	/**
+	 * Gravity hide sublabels in an accessible way
+	 */
+	.#{$smash-prefix-project}-form-hide-sublabel
+	{
+		.ginput_complex[class*="has_"][class*="no_"]
+		{
+			label 
+			{
+				display: none;
+			}
+		}
+	}
+
+
+	/**
+	 * Gravity textarea
+	 */
+	.#{$smash-prefix-project}-form-textarea
+	{
+		margin-top: smash-size( $smash-lh*2.5, $smash-txt-delta, "em");
+	}
+
+
+
+	/**
+	 * Gravity Honey pot
+	 */
+
+	.gform_validation_container
+	{
+		@extend %visually-hidden;
+	}
+
+
+	/**
+	 * Gravity field description
+	 */
+
+	.gfield_description
+	{
+		margin-top: smash-size( $smash-lh/4, $smash-txt-beta, $smash-unit: "em");
+	}
+
+
+	/**
+	 * Gravity bottom line for fields
+	 */
+	.#{$smash-prefix-project}-form-sep-bottom
+	{
+		.ginput_container
+		{
+			border-bottom: 1px solid $smash-mineshaft;
+		}
+
+		&.gfield_error .ginput_container
+		{
+			border-bottom-color: $smash-error;
+		}
+	}
+
+	.#{$smash-prefix-project}-form-sep-top
+	{
+		.ginput_container
+		{
+			border-top: 1px solid $smash-mineshaft;
+		}
+
+		&.gfield_error .ginput_container
+		{
+			border-top-color: $smash-error;
+		}
+	}
+	
+
+	/**
+	 * Gravity drag and drop
+	 */
+
+	.gform_drop_area,
+	.ginput_preview
+	{
+		@include mq(desktop)
+		{
+			@include smash-typo($smash-txt-beta);
+		}
+	}	
+
+	.gform_drop_area 
+	{
+		text-align: center;
+		border: 1px solid $smash-mineshaft;
+		padding: smash-size($smash-lh*2) smash-size($smash-gutter); 
+	}
+
+	.gform_button_select_files
+	{
+		@include smash-text-decoration($start: 94%, $height: 4%);
+		//@include text-shadow(none);
+		text-transform: lowercase;
+
+		.no-cssgradients &
+		{
+			text-decoration: underline;
+		}
+	}
+
+	button.gform_button_select_files,
+	input.gform_button_select_files
+	{
+		padding: 0;
+
+		&:focus,
+		&:hover,
+		&:active 
+		{
+			background-image: none;
+
+			.no-cssgradients &
+			{
+				text-decoration: none;
+			}
+		}
+	}
+
+	.gform_drop_instructions
+	{
+		display: block;
+	}
+
+	.ginput_preview
+	{
+		position: relative;
+		padding-right: smash-size( $smash-gutter );
+		margin-top: smash-size( $smash-lh/2 );
+
+		strong 
+		{
+			font-weight: normal;
+		}
+	}
+
+	.gform_delete
+	{
+		position: absolute;
+		top: smash-size( 8px );
+		right: 0;
+		cursor: pointer;
+	}
+
+
+	/**
+	 * Gravity validation 
+	 */
+
+	.validation_error,
+	.validation_message 
+	{
+	}
+
+	.validation_error
+	{
+		color: $smash-error;
+		margin-bottom: smash-size( $smash-lh, $smash-txt-delta, $smash-unit: "em");
+	}
+
+	.validation_message 
+	{
+		@extend %visually-hidden;       
+		//@include smash-typo($smash-txt-beta, $smash-txt-delta, $smash-unit: "em", $smash-margin: true);
+	}
+
+	.gfield_error 
+	{
+
+	}
+
+	.gform_confirmation_wrapper 
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-delta;
+	}
+
+
+
+	//
+}

@@ -1,0 +1,23 @@
+/* # Démo : grilles avec _inline-block_ */
+
+/* [Voir le résultat](../demos/grille-inline-block.html). */
+
+/* http://www.barrelny.com/blog/text-align-justify-and-rwd/ */
+
+/* Les grilles imbriquées ne sont pas gérées par défaut, mais sont faciles à obtenir en passant en second paramètre le contexte. */
+
+// &-grid-inline-block-auto-2-2
+// {
+//   > *
+//   {
+//     width: smash-grid-col-width(2, 2);
+//   }
+// }
+
+// &-grid-inline-block-auto-2-3
+// {
+//   > *
+//   {
+//     width: smash-grid-col-width(2, 3);
+//   }
+// }

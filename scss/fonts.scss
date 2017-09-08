@@ -1,0 +1,48 @@
+/** --- @section FONT-FACE : EOT --- */
+/** 
+  This CSS will be loaded asynchronously  with JavaScript.
+*/
+
+@import "compass";
+
+
+/**
+ * SabonLT-Roman
+ */
+@include font-face(
+	'SabonLT-Roman',
+	font-files('sabonLT-regular.eot', eot), 
+	$style: normal,
+	$weight: normal
+);
+
+@include font-face(
+	'SabonLT-Roman',
+	inline-font-files(
+		'sabonLT-regular.woff', woff,
+		'sabonLT-regular.ttf', truetype
+	), 
+	$style: normal,
+	$weight: normal
+);
+
+
+/**
+ * Larsseit
+ */
+@include font-face(
+	'Larsseit',
+	font-files('larsseit.eot', eot), 
+	$style: normal,
+	$weight: normal
+);
+
+@include font-face(
+	'Larsseit',
+	inline-font-files(
+		'larsseit.woff', woff,
+		'larsseit.ttf', truetype
+	), 
+	$style: normal,
+	$weight: normal
+);

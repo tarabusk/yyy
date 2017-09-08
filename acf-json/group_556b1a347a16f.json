@@ -1,0 +1,158 @@
+{
+    "key": "group_556b1a347a16f",
+    "title": "Distinctions",
+    "fields": [
+        {
+            "key": "field_556b22adf2e09",
+            "label": "Titre de la page",
+            "name": "distinctions_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Des projets r\u00e9compens\u00e9s",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 200,
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_556b1a3e7845e",
+            "label": "Citation",
+            "name": "distinctions_quote",
+            "type": "textarea",
+            "instructions": "Ne pas saisir les guillemets\u00a0: ils seront g\u00e9n\u00e9r\u00e9s en CSS.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "wpautop",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_556b1a8c3874d",
+            "label": "Phrase introductive",
+            "name": "distinctions_intro_sentence",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "L\u2019agence a obtenu de nombreuses distinctions :",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_556b1ab03874e",
+            "label": "D\u00e9tail des distinctions",
+            "name": "distinctions_awards",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "row",
+            "button_label": "Ajouter un \u00e9l\u00e9ment",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_556b1afd3874f",
+                    "label": "Ann\u00e9e",
+                    "name": "year",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1900,
+                    "max": 2500,
+                    "step": 1,
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_556b209538750",
+                    "label": "Intitul\u00e9 du prix",
+                    "name": "award",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 500,
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "toa-template-distinctions.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "format",
+        "categories",
+        "tags"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1504782234
+}

@@ -1,0 +1,302 @@
+/* # Styles génériques */
+
+@at-root
+{
+	/* # Modèle de boîte */
+
+	@if $smash-box-sizing
+	{
+		*
+		{
+			&,
+			&:before,
+			&:after
+			{
+				box-sizing: border-box;
+			}
+		} 
+	}
+
+	/* # Couleurs */
+
+	/*
+	On force des couleurs de fond et de texte pour contourner les préférences utilisateurs.
+	*/
+
+	html,
+	body 
+	{
+		min-height: 100%;
+	}
+
+	html
+	{
+		position: relative;
+		// background-repeat: no-repeat;
+		// @include background-size(cover);
+
+		background-color: $smash-white;
+		color: $smash-mineshaft;
+
+		// @include mq($until: desktop)
+		// {
+		//   padding-right: smash-size($smash-gutter/2);
+		//   padding-left: smash-size($smash-gutter/2);
+		// }
+	}
+
+	body
+	{
+
+		@include mq($until: desktop)
+		{
+			margin-right: smash-size( $smash-gutter-smaller );
+		}
+
+		@include mq(desktop, large)
+		{
+			// To leave space for the "Project" positioned menu item
+			margin-right: smash-size( $smash-project-item-width + $smash-body-margin-left );
+			// 
+		}
+
+		@include mq(large)
+		{
+			// To leave space for the "Project" positioned menu item
+			margin-right: smash-size( $smash-project-item-width + $smash-body-margin-left-bigger );
+			//
+		}
+	}
+
+
+	a
+	{  
+		position: relative;
+		color: inherit;
+		font-family: inherit;
+		text-decoration: none;
+
+		@extend %link-pretty-underline-hover;
+
+		&:hover,
+		&:active 
+		{
+			outline: none;
+		}
+	}
+
+	/* # Images (et médias) */
+
+	/*
+	Par défaut les images de fonds ne sont pas répétées.
+	*/
+
+	*
+	{
+		&,
+		&:before,
+		&:after
+		{
+			background-repeat: no-repeat;
+		}
+	}
+
+	/*
+	Et les images de contenus sont forcées en `block`.
+	*/
+
+	img,
+	audio,
+	canvas,
+	video,
+	svg,
+	figure
+	{
+		display: block;
+		@extend %#{$smash-prefix-project}-fluid-asset;
+	}
+
+	figure
+	{
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	/* # Marges par défaut */
+
+	p,
+	table,
+	dl,
+	ul,
+	ol,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	hr,
+	.#{$smash-prefix-framework}-table
+	{
+			margin-top: 0;
+			//margin-bottom: smash-size($smash-lh, $smash-fs0);
+
+			margin-bottom: smash-size($smash-lh, $smash-unit: "em");
+	}
+
+	/*
+	Note : pas de marge basse lors des imbrications.
+	*/
+
+	ul,
+	ol,
+	dl
+	{
+			ul,
+			ol,
+			dl
+			{
+					margin-bottom: 0;
+			}
+	}
+
+	ul,
+	ol 
+	{
+		padding-left: 0;
+
+		li 
+		{
+			list-style: none;
+		}
+	}
+
+	/* # Séparateur */
+
+	/*
+	Le décalage sur le rythme vertical provoqué par la bordure est corrigé par la marge négative.
+	Le décalage visuel provoqué par la marge négative est annulé par le positionnement.
+	*/
+
+	hr
+	{
+			clear: both;
+			border: 0;
+			border-top:  1px solid;
+			margin-top: -1px;
+			top:         1px;
+			position: relative;
+	}
+
+	/* # _Resize_ sur les _textareas_ */
+
+	/*
+			<p>
+				<label for="textarea">
+					<span class="block">Lorem ipsum dolor</span>
+					<span class="block"><textarea id="textarea" name="textarea"></textarea></span>
+				</label>
+			</p>
+	*/
+
+	textarea
+	{
+		resize: vertical;
+		overflow: auto;
+		min-height: smash-size($smash-lh * 2);
+	}
+
+	/* # _Reset_ sur les _fieldsets_ */
+
+	/* http://thatemil.com/blog/2015/01/03/reset-your-fieldset/ */
+
+	/*
+			<fieldset class="smash-reset">
+				<legend>Lorem</legend>
+				<p>Lorem ipsum dolor</p>
+			</fieldset>
+	*/
+
+	fieldset.#{$smash-prefix-framework}-reset
+	{
+		border:    0;
+		margin:    0;
+		min-width: 0;
+		padding: 0.01em 0 0 0;
+		
+		legend
+		{
+			padding: 0;
+			display: table;
+		}
+		body:not(:-moz-handler-blocked) & // fx
+		{
+			display: table-cell;
+		}
+	}
+
+	@if $smash-box-sizing
+	{
+		input[type='search']
+		{
+			box-sizing: border-box;
+		}
+	}
+
+	[hidden]  // IE <= 10
+	{
+		display: none;
+	}
+
+	blockquote
+	{
+		margin-top: 0;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	abbr[title]
+	{
+		border-bottom: 0;
+	}
+
+	/* Code */
+	pre,
+	code,
+	kbd,
+	samp
+	{
+		font-size: 0.9em;
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word
+	}
+}
+
+
+&-hide
+{
+	&-mobile
+	{
+		@include mq($until: desktop)
+		{
+			display: none !important;
+		}
+	}
+
+	&-desktop
+	{
+		@include mq(desktop)
+		{
+			display: none !important;
+		}
+	}
+
+	&-touch
+	{
+		.touch &
+		{
+			display: none;
+		}
+	}
+}

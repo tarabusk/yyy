@@ -1,0 +1,86 @@
+/* # Imports */
+
+@import "../../config";
+
+/* # Imports des librairies tierces */
+
+/*
+_SassyLists_ est obligatoire pour la gestion des échelles typographiques.
+*/
+
+@import "SassyLists/dist/SassyLists";
+
+/*
+Les autres sont optionnelles mais conseillées :
+
+ - `normalize` pour l’uniformisation ;
+ - `sass-mq` pour le _responsive web design_ ;
+ - `bourbon` pour les utilitaires ;
+ - `compass` pour les _sprites_.
+ 
+*/
+
+@import "compass";
+@import "sass-mq/_mq.scss";
+
+/* # Imports des utilitaires */
+
+@import "functions";
+@import "mixins";
+@import "scales";
+
+/* # Imports des polices le plus tôt possible */
+
+.#{$smash-prefix-project}
+{
+	@import "../../_project/fonts/*";
+}
+
+/* # Normalize CSS */
+
+@import "modularized-normalize-scss/normalize.scss";
+
+/*
+Il est possible de sortir de cette encapsulation avec `@at-root{}`.
+*/
+
+.#{$smash-prefix-framework}
+{
+  @import "../utils/*";
+}
+
+
+/* # Imports des styles de base */
+.#{$smash-prefix-project}
+{
+	@import "../../_project/base-ui/*";
+}
+
+/* # Imports des styles pour l’agencement général (préfixés) */
+
+.#{$smash-prefix-project}
+{
+	@import "../../_project/layout/*";
+}
+
+/* # Imports des composants (préfixés) */
+
+.#{$smash-prefix-project}
+{
+	@import "../../_project/components/*";
+}
+ 
+/* # Imports des pages (préfixés) */
+
+.#{$smash-prefix-project}
+{  
+	@import "../../_project/pages/*";
+}
+
+/* # Imports des _plugins_ */
+
+@import "../../_project/plugins/*";
+
+/* # Imports de l’espace temporaire de travail */
+
+@import "../../_project/shame";

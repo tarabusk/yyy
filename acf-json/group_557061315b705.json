@@ -1,0 +1,158 @@
+{
+    "key": "group_557061315b705",
+    "title": "Options",
+    "fields": [
+        {
+            "key": "field_55a616415efd8",
+            "label": "Page d'accueil",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_55a6164a5efd9",
+            "label": "Projets \u00e0 afficher sur la page d'accueil",
+            "name": "homepage_projects",
+            "type": "post_object",
+            "instructions": "S\u00e9lectionner les cinq projets \u00e0 afficher sur la page d'accueil. Il est possible de r\u00e9organiser les projets en les glissant\/d\u00e9posant. NB : seuls les cinq premiers projets seront effectivement affich\u00e9s, il est inutile d'en s\u00e9lectionner davantage.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "projet"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_55a616935efda",
+            "label": "Page Contact",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_55706137c8afa",
+            "label": "Page Contact",
+            "name": "contact_page",
+            "type": "page_link",
+            "instructions": "S\u00e9lectionner la page Contact du site : son adresse sera utilis\u00e9e sur la page 404.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_5697c4bb4b5b0",
+            "label": "Carte de v\u0153ux",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5697c4c34b5b1",
+            "label": "Afficher la carte de v\u0153ux sur la page d'accueil\u00a0?",
+            "name": "display_greeting_card",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "oui": "Oui",
+                "non": "Non"
+            },
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "non",
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_5697c50d4b5b2",
+            "label": "Image de la carte de v\u0153ux",
+            "name": "display_greeting_card_img",
+            "type": "image",
+            "instructions": "Format JPG, PNG ou GIF. Poids maxi\u00a0: 1Mo.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium_large",
+            "library": "all",
+            "min_width": 1280,
+            "min_height": "",
+            "min_size": "",
+            "max_width": 2560,
+            "max_height": "",
+            "max_size": 1,
+            "mime_types": "jpg, jpeg, gif, png"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1504782250
+}

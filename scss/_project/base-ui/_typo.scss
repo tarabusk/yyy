@@ -1,0 +1,312 @@
+/* # Tailles des textes */
+
+/*
+Les tailles sont calées par défaut sur la double échelle typographique.
+*/
+
+/*
+    <p class="smash-h1">Lorem</p>
+    <p class="smash-h2">Lorem</p>
+    <p class="smash-h3">Lorem</p>
+    <p class="smash-h4">Lorem</p>
+    <p class="smash-h5">Lorem</p>
+    <p class="smash-h6">Lorem</p>
+    <p class="smash-bigger">Lorem</p>
+    <p class="smash-big">Lorem</p>
+    <p class="smash-body">Lorem</p>
+    <p class="smash-small">Lorem</p>
+    <p class="smash-smaller">Lorem</p>
+*/
+
+/*
+Des variables sont crées pour pouvoir être réutilisés plus facilement dans le projet.
+*/
+
+$smash-h1:      smash-scale( 8) !default;
+$smash-h2:      smash-scale( 7) !default;
+$smash-h3:      smash-scale( 6) !default;
+$smash-h4:      smash-scale( 5) !default;
+$smash-h5:      smash-scale( 4) !default;
+$smash-h6:      smash-scale( 3) !default;
+//$smash-body:    smash-scale( 0) !default;
+
+
+
+// $smash-bigger:  smash-scale( 2) !default;
+// $smash-big:     smash-scale( 1) !default;
+// $smash-small:   smash-scale(-1) !default;
+// $smash-smaller: smash-scale(-2) !default;
+
+
+@at-root
+{
+    /*
+    Par défaut, on réinitialise la taille, l'interlignage des titres de niveau 1 à 6.
+    */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+    {
+        //@include smash-typo($smash-body);
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: normal;
+    }   
+
+    body,
+    .#{$smash-prefix-framework}-body
+    {
+        @extend %#{$smash-prefix-project}-font-sabon;
+
+		@include mq($until: desktop)
+		{
+			@include smash-typo($smash-fs0-smaller, $smash-bfs, $smash-line-height: $smash-lh-smaller);
+		}
+
+		@include mq(desktop)
+		{
+			@include smash-typo($smash-fs0, $smash-bfs, $smash-lh);
+		}
+    }
+
+	// body
+	// {
+	// 	margin-bottom: 0;
+	// }
+
+
+    //
+    // Force inline elements to behave like blocks.
+    //
+
+    span,
+    strong,
+    b,
+    i,
+    em 
+    {
+        &[class*="#{$smash-prefix-project}-txt"]
+        {
+            display: block;
+        }
+    }    
+
+
+    // Fonts
+
+	%#{$smash-prefix-project}-font-larsseit
+	{
+		font-family: Larsseit, sans-serif;
+        letter-spacing: 0.025em;
+	}
+
+    .#{$smash-prefix-project}-font-alpha
+    {
+        @extend %#{$smash-prefix-project}-font-larsseit;
+    }
+
+
+	%#{$smash-prefix-project}-font-sabon
+	{
+		font-family: "SabonLT-Roman", sans-serif;
+        letter-spacing: 0.01em;
+	}
+
+    .#{$smash-prefix-project}-font-beta
+    {
+        @extend %#{$smash-prefix-project}-font-sabon;
+    }
+
+
+    %#{$smash-prefix-project}-font-times
+    {
+        font-family: "Times New Roman", serif;
+    }
+
+    
+
+    // Alpha text
+
+    %#{$smash-prefix-project}-smash-txt-alpha
+    {
+        @include mq(desktop)
+        {
+            @include smash-typo($smash-txt-alpha, $smash-unit: "em", $smash-margin: double);
+        }
+    }
+
+
+    // Beta text
+
+    %#{$smash-prefix-project}-smash-txt-beta
+    {
+        @include mq(desktop)
+        {
+            @include smash-typo($smash-txt-beta, $smash-unit: "em", $smash-margin: true);  
+        }
+
+        a 
+        {
+            @extend %link-pretty-underline-hover-beta;
+
+
+        }
+    }
+
+
+
+
+    // Gamma text – Level 1 titles
+    
+    %#{$smash-prefix-project}-smash-txt-gamma
+    {
+        @include smash-typo($smash-txt-gamma, $smash-unit: "em", $smash-margin: true);
+    }
+
+
+    // Delta text
+
+    %#{$smash-prefix-project}-smash-txt-delta
+    {
+        @include smash-typo($smash-txt-delta, $smash-unit: "em", $smash-margin: true);
+
+        a 
+        {
+            @extend %link-pretty-underline-hover-delta;
+        }
+    }
+
+
+    // Epsilon text
+
+    %#{$smash-prefix-project}-smash-txt-epsilon
+    {
+        @include smash-typo($smash-txt-epsilon, $smash-unit: "em", $smash-margin: true);
+    }
+
+
+    // Zeta text
+
+    %#{$smash-prefix-project}-smash-txt-zeta
+    {
+        @include smash-typo($smash-txt-zeta, $smash-unit: "em", $smash-margin: true);
+    }
+
+
+    // Eta text
+
+    %#{$smash-prefix-project}-smash-txt-eta
+    {
+        @include smash-typo($smash-txt-eta, $smash-unit: "em", $smash-margin: true);
+    }
+
+
+}
+
+
+&-txt
+{
+    // Let's use the Greek alphabet to name our typographic classes:
+    // alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu
+    // xi omicron pi rho sigma tau upsilon phi khi psi omega
+
+
+    // Alpha text
+
+    &-alpha
+    {
+        @extend %#{$smash-prefix-project}-smash-txt-alpha;
+    }
+
+
+    // Beta text 
+
+    &-beta
+    {
+        @extend %#{$smash-prefix-project}-smash-txt-beta;
+    }
+
+    @at-root 
+    {
+        div.#{$smash-prefix-project}-txt-beta
+        {
+            margin-bottom: 0;
+        }
+    }
+    
+
+
+    // Gamma text 
+
+    &-gamma
+    {
+        @extend %#{$smash-prefix-project}-smash-txt-gamma;
+    }
+
+
+    // Delta text 
+
+    &-delta
+    {
+        @extend %#{$smash-prefix-project}-smash-txt-delta;
+    }
+
+
+    // Epsilon text
+
+	&-epsilon
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-epsilon;
+	}
+
+
+	// Zeta text
+
+	&-zeta
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-zeta;
+	}
+
+
+	// eta text
+
+	&-eta
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-eta;
+	}
+
+
+
+    // &-small
+    // {
+    //     @include smash-typo($smash-small);
+    // }
+
+    // &-smaller
+    // {
+    //     @include smash-typo($smash-smaller);
+    // }
+
+    // &-bigger
+    // {
+    //     @include smash-typo($smash-bigger);
+    // }
+
+    // &-big
+    // {
+    //     @include smash-typo($smash-big);
+    // }
+
+
+    &-minor 
+    {
+        color: lighten($smash-mineshaft, 30);
+    }
+
+
+}
+

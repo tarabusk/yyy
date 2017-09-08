@@ -1,0 +1,258 @@
+@charset "UTF-8";
+/* Tuto Alsacreations : Faites bonne impression - Feuille styles css imprimante */
+
+@import 'compass';
+@import "_project/fonts/fonts.scss";
+
+body { /* Modifications : la couleur de fond de page - la police - l'unité utilisée pour la taille de la police  */
+	width: auto!important;
+	margin: auto!important;
+	font-family: serif;
+	font-size: 12pt;
+	background-color: #fff!important;
+	color: #000!important;
+}
+
+#page { /* Modifications : suppression de la bordure - marges */
+	margin:0;
+	border:none;
+}
+
+#banner, #menuright, #footer { /* Les éléments qui ne seront pas affichés  */
+	display:none;
+}
+
+h1 { /* Affichage du titre */
+	margin:0;
+	padding:0;
+	text-indent:0;
+	line-height: normal;
+	font-size:20pt;
+}
+
+h2, h3, #contenu h3, #contenu a, a { /* Modification de la couleur des titres et liens */
+	color:#000;
+}
+
+h2 { /* Modifications : marges - police - couleur du souligné */
+	font-size: 18pt;
+}
+
+p, h1, h2, h3, h4, h5, h6, blockquote, ul, ol {
+  color: #000!important;
+  margin: auto auto 15pt!important;
+}
+
+p, blockquote {
+  orphans: 3; /* pas de ligne seule en bas */
+  widows: 3; /* pas de ligne seule en haut */
+}
+blockquote, ul, ol {
+  page-break-inside: avoid; /* pas de coupure dans ces élements */
+}
+h1 {
+  page-break-before: always; /* chaque titre commence sur une nouvelle page */
+}
+h1, h2, h3, caption {
+  page-break-after: avoid; /* pas de saut après ces éléments */
+}
+
+a { /* Empèche le souligné par défaut du titre h1 */
+	color: #000!important;
+	text-decoration: underline!important;
+}
+
+a:hover { /* Suppression du souligné */
+	text-decoration:none;
+}
+
+.rm-block
+{
+	display: block;
+}
+
+a.rm-block 
+{
+	text-decoration: none !important;
+}
+
+a[href]:after {
+  content: " (" attr(href) ")"; /* affichage des URL des liens */
+  font-size: 70%;
+}
+
+img,
+figure
+{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure 
+{
+	margin: 0;
+}
+
+
+ul,
+ol 
+{
+	padding-left: 0;
+}
+
+li 
+{
+	margin-bottom: 20pt;
+	list-style: none;
+}
+
+article + article
+{
+	margin-top: 20pt;
+}
+
+.entry-header,
+.page-header
+{
+	margin-bottom: 20pt;
+}
+
+p, 
+ul, 
+ol,
+dl,
+dd
+{
+	margin-bottom: 20pt;
+}
+
+
+// -----------------------------------
+
+/**
+ * Custom project styles
+ */
+
+%font-sabon
+{
+	font-family: "SabonLT-Roman", sans-serif;
+    letter-spacing: 0.01em;
+}
+
+%font-larsseit
+{
+	font-family: Larsseit, sans-serif;
+    letter-spacing: 0.025em;
+}
+
+#{headings()}
+{
+	@extend %font-larsseit;
+	font-weight: normal;
+	margin-top: 10pt;
+	margin-bottom: 5pt;
+
+	.toa-contrib &
+	{
+		margin-top: 20pt;
+	}
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6
+{
+	margin-top: 10pt !important;
+}
+
+body 
+{
+	@extend %font-sabon;
+	color: #000;
+	text-align: justify;
+}
+
+.toa-header-nav,
+.toa-footer,
+.toa-list-beta,
+.toa-team-initials,
+.toa-form,
+.entry-share,
+.toa-posts-pagination
+{
+	display: none;
+}
+
+.toa-font-alpha
+{
+    @extend %font-larsseit;
+}
+
+.toa-font-beta
+{
+    @extend %font-sabon;
+}
+
+.toa-header 
+{
+	padding-top: 20pt;
+	padding-bottom: 20pt;
+	margin-bottom: 20pt;
+	border-bottom: 1px solid #cacaca;
+}
+
+.toa-header-title > *
+{
+	line-height: normal;
+	font-size:20pt;	
+	margin: 0 !important;
+}
+
+.toa-header-title,
+.entry-title,
+.page-title
+{
+	a 
+	{
+		text-decoration: none !important;
+		
+		&[href]:after 
+		{
+			display: none;
+		}
+	}
+
+}
+
+.toa-section,
+.toa-layout-alpha,
+[class*="_col"],
+.toa-asset-fullwidth
+{
+	margin-bottom: 30pt;
+}
+
+/** HOME */
+.toa-home-list_title,
+.toa-project_subtitle
+{
+	font-size: 20pt;
+	@extend %font-larsseit;
+}
+.toa-home-list_subtitle,
+.toa-project_subtitle + *
+{
+	font-size: 13pt;
+	margin-bottom: 10pt;
+	@extend %font-sabon;
+}
+
+h3 + .toa-img-txt_subtitle
+{
+	display: block;
+	margin-top: -10pt;
+	margin-bottom: 10pt;
+}

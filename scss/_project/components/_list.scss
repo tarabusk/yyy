@@ -1,0 +1,315 @@
+/* # Listes du thème */
+
+@at-root
+{
+	[class*="_list"]
+	{
+		> ul,
+		> ol 
+		{
+			margin-bottom: 0;
+		}
+	}
+
+
+	/**
+	 * ALPHA LIST
+	 * View example on the homepage, on desktop and larger screens.
+	 */
+	%#{$smash-prefix-project}-list-alpha
+	{
+		> li 
+		{
+			> a 
+			{
+				@extend %#{$smash-prefix-framework}-block;
+			}
+		}
+
+		[class*="_title"]
+		{
+			@extend %#{$smash-prefix-project}-font-larsseit;
+		}
+
+		@include mq(desktop, large)
+		{
+			> li
+			{
+				margin-left: smash-size( $smash-body-margin-left );
+			}
+		}
+
+		@include mq(large)
+		{
+			> li
+			{
+				margin-left: smash-size( $smash-body-margin-left-bigger );
+			}
+		}
+
+		
+		@include mq(desktop)
+		{
+			text-align: center;
+			margin-bottom: smash-size( $smash-lh*2 );
+
+			.is-active
+			{
+				[class*="_asset"]
+				{
+					@include opacity(1);
+
+					.no-opacity &
+					{
+						display: block;
+					}
+				}
+			}
+
+			> li 
+			{
+				.no-touchevents &
+				{
+					> a 
+					{
+						@include opacity(.4);
+						@include transition(opacity $smash-duration);
+
+						&:focus,
+						&:hover,
+						&:active
+						{
+							@include opacity(1);
+						}
+					}
+				}
+
+				&.is-active 
+				{
+					.no-touchevents &
+					{
+						> a 
+						{
+							@include opacity(1);
+						}
+					}
+				}
+
+				//
+				// On desktop and larger screens whose height is smaller than $mq-min-desktop-height,
+				// lower margin.
+				//
+
+				@media (max-height: smash-size($mq-min-desktop-height-max, $smash-context: $smash-bfs, $smash-unit: "em") ) 
+				{
+					// Cancel the margin-left that is need artificially to simulate some 
+					// kind of .#{$smash-prefix-framework}-grid-container centering.
+					margin-left: 0;
+
+					& + li
+					{
+						margin-top: smash-size( $smash-lh/2 );
+					}
+				}
+
+
+				//
+				// On desktop and larger screens whose height is equal to or bigger than $mq-min-desktop-height,
+				// increase margin.
+				//
+
+				@media (min-height: smash-size($mq-min-desktop-height-min, $smash-context: $smash-bfs, $smash-unit: "em") ) 
+				{
+					& + li
+					{
+						margin-top: smash-size( $smash-lh );
+					}
+				}
+
+			}
+
+			[class*="_asset"]
+			{
+				position: fixed;
+				top: -50%;
+				left: -50%;
+				width: 200%;
+				height: 200%;
+				z-index: -1;
+				@include opacity(0);
+				@include transition(opacity 300ms);
+
+				.no-opacity &
+				{
+					display: none;
+				}
+
+				img 
+				{
+					@include smash-stretch( smash-size(-9999px) );
+					min-width: 50%;
+					min-height: 50%;
+					margin: auto;
+
+				}
+			}
+
+			[class*="_title"]
+			{
+				display: block;
+				font-weight: normal;
+				margin-bottom: 0;
+
+				//
+				// On desktop and larger screens whose height is smaller than $mq-min-desktop-height,
+				// lower font-size
+				//
+
+				@media (max-height: smash-size($mq-min-desktop-height-txt-max, $smash-context: $smash-bfs, $smash-unit: "em") )
+				{
+					@include smash-typo($smash-txt-delta);
+				}
+
+
+				//
+				// On desktop and larger screens whose height is smaller than $mq-min-desktop-height,
+				// increase font-size.
+				//
+
+				@media (min-height: smash-size($mq-min-desktop-height-txt-min, $smash-context: $smash-bfs, $smash-unit: "em") )
+				{
+					@include smash-typo($smash-txt-alpha);
+				}
+			}
+
+			[class*="_subtitle"]
+			{
+				@include smash-typo($smash-txt-beta);
+			}
+
+			
+
+		}		
+
+		
+	}
+
+
+
+	/**
+	 * GAMMA LIST
+	 * View example on the homepage, on desktop and larger screens.
+	 */
+	%#{$smash-prefix-project}-list-gamma
+	{
+		@include smash-clearfix;
+		//margin-bottom: 0;
+
+		@include mq($until: desktop)
+		{
+			> li 
+			{
+				margin-bottom: smash-size( $smash-lh*2, $smash-unit: "em");
+
+				&:last-child
+				{
+					margin-bottom: smash-size( $smash-lh, $smash-unit: "em");
+				}
+			}
+
+			[class*="_title"]
+			{
+				@include smash-typo($smash-txt-delta, $smash-unit: "em");
+			}
+
+			[class*="_subtitle"]
+			{
+				@include smash-typo($smash-txt-beta, $smash-fs0-smaller, $smash-unit: "em"); 
+			}
+
+			[class*="_asset"]
+			{
+				margin-left: smash-size( $smash-body-margin-smaller*-1 );
+
+				img 
+				{
+					width: 100%;
+				}
+			}
+
+			[class*="_asset"] + a,
+
+			// may not be needed
+			a + [class*="_asset"],
+			[class*="_content"] + [class*="_asset"],
+			//
+
+			[class*="_asset"] + [class*="_content"]
+			{
+				margin-top: smash-size( $smash-lh/2 );
+			}
+
+			.js-hover,
+			.#{$smash-prefix-framework}-block:focus,
+			.#{$smash-prefix-framework}-block:hover,
+			.#{$smash-prefix-framework}-block:active
+			{
+				[class*="_title"] span
+				{
+					@include smash-text-decoration($start: 96%, $height: 4%);
+					padding-bottom: smash-size( 4px ); 
+				}
+			}
+		}
+
+
+
+		@include mq(desktop)
+		{
+			[class*="_subtitle"]
+			{
+				margin-bottom: 0;
+			}
+		}
+
+	}
+}
+
+
+&-list
+{
+
+	/**
+	 * BETA LIST
+	 */
+	&-beta
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-beta;
+		@extend %#{$smash-prefix-project}-font-larsseit;
+		margin-bottom: 0;
+		
+		.cat-item a 
+		{
+			@extend %link-opacity-hover;
+		}
+
+		.current-cat a
+		{
+			@extend %link-opacity-reset;
+		}
+
+		@include mq($until: tablet)
+		{
+			> li + li
+			{
+				margin-top: smash-size( $smash-lh/2 );
+			}
+		}
+
+		@include mq(tablet)
+		{
+			@include smash-list-inline-block();
+    		@include smash-list-inline-block-margin();
+		}
+	}
+}

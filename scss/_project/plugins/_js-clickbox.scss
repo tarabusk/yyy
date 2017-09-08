@@ -1,0 +1,57 @@
+/* # ARVE plugin */
+
+@at-root 
+{
+	.js
+	{
+		.js-clickbox
+		{
+			cursor: pointer;
+
+			&.js-hover 
+			{
+				.js-clickbox_target
+				{
+					@include smash-text-decoration($start: 94%, $height: 5%);
+				}
+
+				.#{$smash-prefix-project}-team_header-title
+				{
+					.js-clickbox_target
+					{
+						@include smash-text-decoration($start: 96%, $height: 4%);
+
+						// .#{$smash-prefix-project}-layout-dark &
+						// {
+						// 	@include text-shadow(none);
+						// }
+					}
+				}
+
+			}
+
+		}
+
+		&.no-cssgradients 
+		{
+			.js-clickbox
+			{
+				cursor: pointer;
+				
+				&.js-hover
+				{
+					.js-clickbox_target
+					{
+						text-decoration: underline;
+					}
+				}
+
+			}
+		}
+
+		.js-hover 
+		{
+			cursor: pointer;
+		}
+	}
+}

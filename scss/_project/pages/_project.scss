@@ -1,0 +1,111 @@
+/* # Styles spécifiques pour la fiche projet */
+
+&-project
+{
+	// Project header
+	&_header
+	{
+		.post-edit-link-container
+		{
+			margin-bottom: 0;
+		}
+	}
+
+	// Project subtitle (looking like a level 1 title, though it is not one)
+	&_subtitle
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-gamma;
+		margin-bottom: smash-size( $smash-lh/2 );
+	}
+
+
+
+	// Project technical definition
+	&_defs
+	{
+		@include mq(tablet)
+		{
+			$nb_columns: 2;
+
+			@include columns($nb_columns);
+			@include column-gap( smash-size($smash-gutter) );
+
+			li 
+			{
+				-webkit-column-break-inside: avoid;
+				page-break-inside: avoid;
+				break-inside: avoid;
+			}
+		}
+	}
+
+	&_def
+	{
+		padding-bottom: smash-size( $smash-lh );
+		margin-bottom: 0;
+
+		@include mq($until: tablet)
+		{
+			&:last-child
+			{
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	&_press
+	{
+		// a 
+		// {
+		// 	@extend %link-pretty-underline-hover;
+		// }
+
+		span[class*="#{$smash-prefix-project}-txt"]
+		{
+			display: inline;
+		}
+	}
+
+
+
+}
+
+
+
+/**
+ * Projects list
+ */
+&-projects
+{
+
+	/**
+	 * MOBILE and TABLET
+	 */
+	&-list,
+	&-related
+	{
+		@extend %#{$smash-prefix-project}-list-gamma;
+	}
+
+
+
+	/**
+	 * DESKTOP and LARGER SCREENS
+	 * Display this module as an img-txt module, in an alpha layout
+	 */
+	&-layout-alpha
+	{
+		@extend %layout-alpha-desktop;
+		margin-bottom: 0;
+	}
+
+	@include mq(desktop)
+	{
+		&-img-txt
+		{
+			@include smash-img-txt();
+			@include smash-img-txt-hover();
+		}
+	}
+
+}

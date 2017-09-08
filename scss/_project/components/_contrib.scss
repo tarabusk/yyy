@@ -1,0 +1,359 @@
+	/* # Gestion des contributions */
+
+@at-root
+{
+	%#{$smash-prefix-project}-fluid-asset
+	{
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+&-contrib
+{
+
+	/**
+	 * TITLES
+	 */
+
+	#{headings()}
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;
+		margin-top: smash-size( $smash-lh*2);
+	}
+
+	h1
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-gamma;
+	}
+	h2
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-delta;
+		
+		// ?
+		//@extend %#{$smash-prefix-project}-smash-txt-alpha;
+		//margin-bottom: smash-size( $smash-lh, $smash-txt-alpha, $smash-unit: "em");
+	}
+	h3
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-delta;
+	}
+	h4
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-epsilon;
+		text-transform: uppercase;
+	}
+	h5
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-zeta;
+	}
+	h6
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-eta;
+		text-transform: uppercase;
+	}
+	
+	> h1:first-child,
+	> h2:first-child,
+	> h3:first-child,
+	> h4:first-child,
+	> h5:first-child,
+	> h6:first-child
+	{
+		margin-top: 0;
+	}
+
+	h1 + h2,
+	h2 + h3,
+	h3 + h4,
+	h4 + h5,
+	h5 + h6
+	{
+		margin-top: smash-size( $smash-lh, $smash-unit: "em");
+	}
+
+
+	//
+
+	p
+	{
+
+	}
+	a 
+	{
+		//@extend %link-pretty-underline;
+		@include smash-text-decoration($start: 96%, $height: 4%);
+
+		// &:focus,
+		// &:hover,
+		// &:active
+		// {
+		// 	background-image: none;
+
+		// 	.no-cssgradients &
+		// 	{
+		// 		text-decoration: none;
+		// 	}
+		// }
+	}
+
+	/* Abbreviations */
+	abbr[title]
+	{
+	    border-bottom: 1px dotted;
+	}
+
+
+	em
+	{
+
+	}
+	strong
+	{
+
+	}
+
+	/* Lists */
+
+	ul,
+	ol 
+	{
+
+	}
+
+	ul
+	{
+	}
+
+	ol
+	{
+		counter-reset: item;
+	}
+
+	ul ol,
+	ol ul,
+	ul ul,
+	ol ol
+	{
+		margin-top: smash-size( $smash-lh/2 );
+		margin-bottom: smash-size( $smash-lh );
+		padding-left: smash-size( $smash-gutter );
+	}
+
+	li 
+	{
+		position: relative;
+		margin-bottom: smash-size( $smash-lh/2 );
+	}
+
+	ul,
+	ol ul
+	{
+		li
+		{
+			padding-left: smash-size( $smash-gutter/2);
+
+			&:before
+			{
+				content: "/ ";
+				position: absolute;
+				left: 0;
+			}
+		}
+	}
+
+	ol,
+	ul ol
+	{
+		li 
+		{
+			&:before
+			{
+				//@include font-size($txt-medium);
+				line-height: 0; // bug in IE9-11 
+				@include rem(top, 16px);
+				
+				content: counters(item, ".", decimal-leading-zero) ". ";
+				counter-increment: item;
+			}
+			
+			ol li:before
+			{
+				content: "";
+			}
+		}
+	}
+
+	ul ol 
+	{
+		li 
+		{
+			padding-left: smash-size( $smash-gutter*1.75);
+		}
+	}
+
+	ol ol
+	{
+		li
+		{
+			list-style: lower-alpha inside;
+		}
+	}
+
+	
+
+	/* Tables */
+	table
+	{
+		width: 100%;
+		border-collapse: collapse;
+		table-layout: fixed;
+	}
+
+	td,
+	th 
+	{
+		padding: smash-size( $smash-lh/2 ) smash-size( $smash-gutter/2 );
+		border: 1px solid $smash-silver;
+	}
+	td
+	{
+
+	}
+	th
+	{
+		font-weight: normal;
+		text-align: left;
+	}
+	thead
+	{
+
+	}
+	tfoot
+	{
+
+	}
+	tbody
+	{
+
+	}
+
+	/* Quotes */
+
+	q
+	{
+
+	}
+	cite
+	{
+
+	}
+	blockquote
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-alpha;
+
+		p 
+		{
+			position: relative;
+
+			&:first-child:before,
+			&:last-of-type:after
+			{
+				font-style: normal;
+			}
+
+			&:first-child:before
+			{
+				content: "« ";
+			}
+
+			&:last-of-type
+			{
+				margin-bottom: 0;
+			}
+			&:last-of-type:after
+			{
+				content: " »";
+			}
+
+		}
+
+		footer 
+		{
+			margin-top: smash-size( $smash-lh/2 );
+
+			p 
+			{
+				&:first-child:before,
+				&:last-of-type:after
+				{
+					content: "";
+				}
+			}
+
+		}
+
+
+
+		@include mq(desktop)
+		{
+			footer 
+			{
+				@include smash-typo($smash-fs0, $smash-context: $smash-txt-alpha, $smash-unit: "em");
+			}
+		}
+	}
+
+	/* Code */
+	pre,
+	code,
+	kbd,
+	samp
+	{
+		background: lighten($smash-silver, 8%);
+		font-size: 0.9em;
+	}
+	code
+	{
+
+	}
+
+	pre 
+	{
+		margin-top: 0;
+		margin-bottom: smash-size($smash-lh);
+	}
+
+	figure
+	{
+		//@extend %#{$smash-prefix-project}-fluid-asset;
+		margin-top: 0;
+	}
+	figcaption
+	{
+
+	}
+
+	img 
+	{
+		//@extend %#{$smash-prefix-project}-fluid-asset;
+	}
+
+	/* Definition list */
+	dt
+	{
+		font-weight: bold;
+		margin-bottom: smash-size($smash-lh/2, $smash-unit: "em" );
+	}
+	dd 
+	{
+		margin-bottom: smash-size($smash-lh, $smash-unit: "em" );
+	}
+
+	/* Address */
+	address 
+	{
+		font-style: normal;
+		margin-bottom: smash-size( $smash-lh );
+	}
+}

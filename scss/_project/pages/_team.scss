@@ -1,0 +1,154 @@
+/* # Styles spécifiques pour la page Équipe */
+
+&-team
+{
+	&_header,
+	&_content
+	{
+		* 
+		{
+			margin-bottom: 0;
+		}
+	}
+
+	&_content
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-beta;
+	}
+
+	&_header + &_content
+	{
+		margin-top: smash-size( $smash-lh/2, $smash-txt-beta, $smash-unit: "em");
+	}
+
+	&_asset
+	{
+		img 
+		{
+			width: 100%;
+		}
+	}
+
+
+	@include mq($until: desktop)
+	{
+		&_asset
+		{
+			margin-left: smash-size( $smash-body-margin-smaller*-1 );	
+		}
+
+		[class*="_col"]
+		{
+			margin-bottom: smash-size( $smash-lh-smaller*2, $smash-fs0-smaller, $smash-unit: "em");
+		}
+
+		.#{$smash-prefix-project}-layout-zeta_col
+		{
+			margin-bottom: smash-size( $smash-lh-smaller*2, $smash-fs0-smaller, $smash-unit: "em");
+		}
+	}
+
+	@include mq(tablet, desktop)
+	{
+		.#{$smash-prefix-project}-layout-zeta &_asset
+		{
+			margin-left: 0;
+		}
+	}
+
+
+	@include mq(desktop)
+	{
+		.#{$smash-prefix-project}-layout-zeta_col
+		{
+			margin-bottom: smash-size( $smash-lh*2, $smash-unit: "em");
+		}
+
+	}
+
+
+	/**
+	 * ASSOCIATES
+	 */
+	&-associate
+	{
+		.#{$smash-prefix-project}-team_header-title
+		{
+			@extend %#{$smash-prefix-project}-smash-txt-delta;
+			margin-bottom: smash-size( $smash-lh/2, $smash-txt-delta, $smash-unit: "em");
+		}
+	}
+
+
+	/**
+	 * PARTNERS
+	 */
+	&-partner
+	{
+
+	}
+
+
+	/**
+	 * INITIALS
+	 */
+	&-initials 
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;
+
+		@include mq($until: desktop)
+		{
+			display: none;
+		}
+		
+		@include mq(desktop)
+		{
+			margin-bottom: smash-size( $smash-lh*2 );
+
+			[data-associate-initial]
+			{
+				display: block;
+				margin-top: smash-size($smash-lh*-1);
+
+				span 
+				{
+					margin-left: smash-size($smash-gutter*2);
+				}
+
+				&:before 
+				{
+					display: block;
+					content: attr(data-associate-initial);
+					@include smash-typo(320px, $smash-unit: "em");
+					text-align: center;
+					margin-bottom: smash-size( $smash-lh/-1 );
+				}
+
+				&:after 
+				{
+					content: ".";
+					@include inline-block(top);
+					margin-left: smash-size( -5px );
+				}
+			}
+
+			a 
+			{
+				&:focus,
+				&:hover,
+				&:active
+				{
+					[data-associate-initial]
+					{
+						span 
+						{
+							@include smash-text-decoration($start: 96%, $height: 4%);
+							padding-bottom: smash-size( 4px );
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

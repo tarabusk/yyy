@@ -1,0 +1,124 @@
+/* # Ratios */
+
+/*
+http://alistapart.com/article/creating-intrinsic-ratios-for-video
+*/
+
+/*
+Note : c’est le parent qui doit fixer la largeur pour pouvoir l’hériter.
+*/
+
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio" style="background-color: black"></div>
+    </div>
+*/
+
+&-ratio
+{
+  &
+  {
+    position: relative;
+    height: 0;
+    padding-bottom: 100% / map-get($smash-ratios, prime);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-1-2" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-1-2
+  {
+    padding-bottom: 100% / map-get($smash-ratios, octave);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-2-1" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-2-1
+  {
+    padding-bottom: 100% * map-get($smash-ratios, octave);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-2-3" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-2-3
+  {
+    padding-bottom: 100% / map-get($smash-ratios, fifth);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-3-1" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-3-1
+  {
+    padding-bottom: 100% * map-get($smash-ratios, major-twelfth);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-3-2" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-3-2
+  {
+    padding-bottom: 100% * map-get($smash-ratios, fifth);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-3-4" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-3-4
+  {
+    padding-bottom: 100% / map-get($smash-ratios, fourth);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-4-1" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-4-1
+  {
+    padding-bottom: 100% * map-get($smash-ratios, double-octave);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-4-3" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-4-3
+  {
+    padding-bottom: 100% * map-get($smash-ratios, fourth);
+  }
+  
+/*
+    <div class="smash-grid_col-2">
+      <div class="smash-ratio smash-ratio-16-9" style="background-color: black"></div>
+    </div>
+*/
+  
+  &-16-9
+  {
+    padding-bottom: 100% * map-get($smash-ratios, minor-seventh);
+  }
+}

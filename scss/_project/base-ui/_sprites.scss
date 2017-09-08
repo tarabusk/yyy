@@ -1,0 +1,23 @@
+/* # Déclarations des images spritées */
+
+/* http://pioupioum.fr/compass-sauvez-integrateur/sprites.html */
+
+ //$smash-exemple-layout: vertical;
+ //$smash-exemple-spacing: 32px;
+ 
+ //@import 'bg/exemple/*.png';
+ 
+/*
+
+Utilisation dans vos fichiers avec par exemple :
+
+ - `@include exemple-sprite(image);` ou
+ - `@include exemple-sprite(image, $smash-offset-x:100%);`.
+
+*/
+
+
+@at-root
+{
+	
+}

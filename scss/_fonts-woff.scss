@@ -1,0 +1,26 @@
+/** --- @section FONT-FACE : WOFF --- */
+/** 
+  This CSS will be loaded asynchronously  with JavaScript.
+*/
+
+@import "compass";
+
+/**
+ * SabonLT-Roman
+ */
+@include font-face(
+	'SabonLT-Roman',
+	inline-font-files('sabonLT-regular.woff', woff),
+	$style: normal,
+	$weight: normal
+);
+
+/**
+ * Larsseit
+ */
+@include font-face(
+	'Larsseit',
+	inline-font-files('larsseit.woff', woff),
+	$style: normal,
+	$weight: normal
+);

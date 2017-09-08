@@ -1,0 +1,33 @@
+/* # Styles spécifiques pour les pages « Espace presse » */
+
+@at-root
+{
+	.post-type-archive-presse
+	{
+		.#{$smash-prefix-project}-list-beta .cat-item:first-child > a
+		{
+			@extend %link-opacity-reset;
+		}
+	}
+
+	// .type_presse-dossiers-de-presse
+	// {
+	// 	@include mq($until: tablet)
+	// 	{
+	// 		//@include inline-block(top);
+	// 		float: left;
+	// 		clear: left;
+	// 	}
+	// }
+
+
+}
+
+&-press 
+{
+	&-list 
+	{
+		margin-top: smash-size( $smash-lh);
+		margin-bottom: smash-size( $smash-lh*5 );
+	}
+}

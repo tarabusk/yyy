@@ -1,0 +1,979 @@
+/* # Styles colonnes / mise en page */
+
+@at-root 
+{
+
+	[class*="_col"]
+	{
+		> *:last-child
+		{
+			margin-bottom: 0;
+		}
+	}
+
+
+
+	%layout-alpha 
+	{
+		// background-color: rgba(yellow, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(yellow, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;	
+
+
+		//&_content
+		[class*="_content"]
+		{
+			@extend %layout-fluid-content;
+
+			& + &
+			{
+				margin-top: smash-size( $smash-lh, $smash-unit: "em");
+			}
+		}
+
+
+		//
+		// Alpha columns
+		//
+
+		//&_col 
+		[class*="_col"]
+		{
+
+			//
+			// Tablet + Desktop + Larger screens
+			//
+			@extend %layout-fluid-col-half;
+
+
+			//
+			// Bottom margins
+			//
+			
+			@extend %layout-fluid-margin-bottom-smaller;
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+			@include mq(desktop)
+			{
+ 	 			@include layout-last-row-margin-bottom(2);
+			}
+
+		}
+	}
+
+
+	%layout-alpha-desktop
+	{
+		// background-color: rgba(yellow, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(yellow, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+		//&_content
+		[class*="-layout"][class*="_content"]
+		{
+			@extend %layout-fluid-content;
+
+			@include mq(desktop)
+			{
+				& + &
+				{
+					margin-top: smash-size( $smash-lh, $smash-unit: "em");
+				}
+
+			}
+		}
+
+
+		//
+		// Alpha columns
+		//
+
+		//&_col 
+		[class*="_col"]
+		{
+
+			//
+			// Desktop + Larger screens
+			//
+			@extend %layout-fluid-col-half-desktop;
+			@extend %layout-fluid-col-half-bigger;
+
+
+			//
+			// Bottom margins
+			//
+			
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+ 	 		@include mq(desktop)
+			{
+	 			//@include layout-last-row-margin-bottom(2);
+	 			&:nth-last-child(-n+2)
+	 			{
+	 				margin-bottom: 0;
+	 			}
+	 		}
+
+		}
+
+
+	}
+	
+}
+
+&-layout
+{
+	
+	
+
+	// ------------------------------------------------------------------------------------------------
+
+	/* - Layout couleurs */
+
+	&-dark 
+	{
+		background-color: $smash-mineshaft;
+		color: white;
+
+		// a 
+		// {
+		// 	&,
+		// 	&:focus,
+		// 	&:hover,
+		// 	&:active 
+		// 	{
+		// 		@include text-shadow(none);
+		// 	}
+		// }
+	}
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Colonnages génériques */
+
+	@at-root
+	{
+		[class*="#{$smash-prefix-project}-layout-"]
+		{
+ 	 		@include smash-clearfix;
+
+ 	 		[class*="_col"]:last-of-type
+ 	 		{
+ 	 			margin-bottom: 0;
+ 	 		}
+		}
+
+		[class*="#{$smash-prefix-project}-layout-"][class*="_content"]
+		{
+ 	 		margin-bottom: 0;
+		}
+
+		
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Layout alpha */
+
+	/*
+	 - à partir du viewport `tablet`: deux colonnes de 50% chacune, séparées par une gouttière équivalente à  `$smash-gutter`.
+	 - sur mobile: chaque bloc est linéarisé.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Fiche projet ».
+	*/
+
+	&-alpha
+	{
+		@extend %layout-alpha;
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Layout beta */
+
+	/*
+	 - à partir du viewport `large`: trois colonnes brisant la grille de quatre colonnes.
+	 - sur desktop : trois colonnes respectant la grille desktop.
+	 - sur tablette et sur mobile : chaque colonne est linéarisée.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Recrutement / Listing offres ».
+	*/
+
+	&-beta
+	{
+		// background-color: rgba(cyan, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(cyan, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+
+		&_content
+		{
+			@extend %layout-fluid-content;
+		}
+
+
+		//
+		// Beta columns
+		//
+		&_col 
+		{
+			//
+			// Mobile + Tablet
+			//
+
+			@extend %layout-linearized-smaller;
+
+
+			//
+			// Desktop
+			//
+			@extend %layout-fluid-col-desktop;
+
+			@include mq(desktop, large)
+			{
+				&:first-child + &:last-child
+				{
+					// Let's calculate, in percent, the width of one column + one gutter.
+					margin-left: 	smash-percent( smash-grid-cols-width(1) + $smash-gutter, 
+												(smash-grid-cols-width($smash-cols-desktop) + $smash-gutter)
+									);
+				}
+			}
+
+
+			//
+			// Larger screens
+			//
+
+			@include mq(large)
+			{
+				@include smash-grid-fluid-col($smash-cols-bigger/3, null, $fluid-content-bigger);
+
+				&:first-child + &:last-child
+				{
+					// Let's calculate, in percent, the width of one column + one gutter.
+					margin-left: 	smash-percent( smash-grid-cols-width($smash-cols-bigger/$smash-cols-desktop) + $smash-gutter, 
+												(smash-grid-cols-width($smash-cols-bigger) + $smash-gutter)
+									);
+				}
+
+				&:nth-child(3n+1)
+				{
+					clear: left;
+				}
+			}
+
+
+			//
+			// Bottom margins
+			//
+
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+ 	 		@include mq(desktop)
+			{
+ 	 			@include layout-last-row-margin-bottom(3);
+			}
+		}
+
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Layout gamma */
+
+	/*
+	 - à partir du viewport `large`: deux colonnes, séparées par une colonne.
+	 - sur tablette et sur desktop : deux colonnes de 50%.
+	 - sur mobile : chaque colonne est linéarisée.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Contact ».
+	*/
+
+	&-gamma
+	{
+		// background-color: rgba(blueviolet, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(blueviolet, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+
+		&_content
+		{
+			@extend %layout-fluid-content;
+
+			@include mq(desktop)
+			{
+ 	 			//@include layout-last-row-margin-bottom(2);
+ 	 			.#{$smash-prefix-project}-layout-gamma_col:nth-last-child(-n+2)
+				{
+					margin-bottom: 0;
+				}
+
+			}
+		}
+
+
+		// 
+		// Gamma columns
+		//
+		&_col 
+		{
+
+			//
+			// Mobile
+			//
+
+			@extend %layout-linearized-mobile;
+
+
+			//
+			// Tablet
+			//
+
+			@extend %layout-col-half-tablet;
+
+
+			//
+			// Desktop
+			//
+
+			@extend %layout-fluid-col-half-desktop;
+
+
+			//
+			// Larger screens
+			//
+
+			@extend %layout-fluid-col-bigger;
+
+			@include mq(large)
+			{
+				& + &:nth-child(even)
+				{
+					// Let's calculate, in percent, the width of one column + one gutter.
+					margin-left: 	smash-percent( smash-grid-cols-width(1) + $smash-gutter, 
+												(smash-grid-cols-width($smash-cols-bigger) + $smash-gutter)
+									);
+				}
+
+				& + &:nth-child(odd)
+				{
+					clear: left;
+				}
+			}
+
+
+			//
+			// Bottom margins
+			//
+			
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+			@include mq(desktop)
+			{
+ 	 			@include layout-last-row-margin-bottom(2);
+			}
+ 	 		
+		}
+
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Layout delta */
+
+	/*
+	 - à partir du viewport `large`: la première colonne occupe deux colonnes, et la seconde une colonne, séparée de la première par une colonne.
+	 - sur desktop : la première colonne occupe deux colonnes, et la seconde une colonne.
+	 - sur mobile et sur tablette : chaque colonne est linéarisée.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Fiche projet ».
+	*/
+
+	&-delta
+	{
+		// background-color: rgba(peru, 0.1);
+
+		// @at-root
+		// {
+		// 	[class*="#{$smash-prefix-project}-layout-delta_col"]
+		// 	{
+		// 		background-color: rgba(peru, 0.2);
+		// 	}
+		// }
+		
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+
+		//
+		// Delta columns
+		//
+
+		@at-root
+		{
+			[class*="#{$smash-prefix-project}-layout-delta_col"]
+			{
+
+				//
+				// Mobile + Tablet
+				//
+
+				@extend %layout-linearized-smaller;
+
+			}
+		}
+
+
+		//
+		// Desktop
+		//
+
+		@extend %layout-fluid-content-desktop;
+
+		&_col-first
+		{
+			@extend %layout-fluid-col2-desktop;
+		}
+
+		&_col-last
+		{
+			@extend %layout-fluid-col-desktop;
+		}
+
+
+		//
+		// Larger screens
+		//
+
+		@extend %layout-fluid-content-bigger;
+
+		&_col-first
+		{
+			@extend %layout-fluid-col2-bigger;
+		}
+
+		&_col-last
+		{
+			@extend %layout-fluid-col-bigger;
+
+			@include mq(large)
+			{
+				.#{$smash-prefix-project}-layout-delta_col-first + &
+				{
+					// Let's calculate, in percent, the width of one column + one gutter.
+					margin-left: 	smash-percent( smash-grid-cols-width(1) + $smash-gutter, 
+												(smash-grid-cols-width($smash-cols-bigger) + $smash-gutter)
+									);
+				}
+			}
+		}
+
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Layout epsilon */
+
+	/*
+	 - à partir du viewport `large`: un bloc par ligne, qui occupe 3 colonnes de la grille.
+	 - sur desktop : un bloc par ligne qui occuoe 2 colonnes de la grille.
+	 - sur mobile et tablette : un bloc qui occupe 100% de la largeur.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Distinctions ».
+	*/
+
+	&-epsilon
+	{
+		// background-color: rgba(orange, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(orange, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+
+
+		&_content
+		{
+			@extend %layout-fluid-content;
+		}
+
+
+		// 
+		// Epsilon columns
+		//
+		&_col 
+		{
+
+			//
+			// Desktop
+			//
+
+			@extend %layout-fluid-col2-desktop;
+
+
+			//
+			// Larger screens
+			//
+
+			@extend %layout-fluid-col3-bigger;
+
+
+			//
+			// Bottom margins
+			//
+			
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+		}
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+	
+	/* - Layout zeta
+	 */
+
+	/*
+	 - à partir du viewport `large`: quatre blocs par ligne, occupant chacun une colonne de la grille de 4 colonnes.
+	 - sur desktop : trois blocs par ligne, occupant chacun une colonne de la grille de 3 colonnes.
+	 - sur mobile et tablette : un bloc qui occupe 100% de la largeur.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Distinctions » ou en bas de la fiche Projet (projets similaires).
+	*/
+
+	&-zeta
+	{
+		// background-color: rgba(deeppink, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(deeppink, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+
+		&_content
+		{
+			@extend %layout-fluid-content;
+		}
+
+
+		// 
+		// Zeta columns
+		//
+		&_col 
+		{
+			//
+			// Mobile and Tablet
+			//
+
+			@extend %layout-linearized-smaller;
+
+			//
+			// Mobile
+			//
+
+			//@extend %layout-linearized-mobile;
+
+
+			//
+			// Tablet
+			//
+
+			// @extend %layout-col-half-tablet;
+
+			// @include mq(tablet, desktop)
+			// {
+			// 	@if $smash-fluid-gutter-fixed
+			// 	{
+			// 		margin-bottom: smash-size($smash-gutter/2);
+			// 	}
+			// 	@else 
+			// 	{
+			// 		margin-bottom: smash-percent($smash-gutter/2, (smash-grid-cols-width($smash-cols-tablet) + $smash-gutter));
+			// 	}
+			// }
+
+
+			//
+			// Desktop
+			//
+
+			@extend %layout-fluid-col-desktop;
+
+
+			//
+			// Larger screens
+			//
+
+			@extend %layout-fluid-col-bigger;
+
+
+			//
+			// Bottom margins
+			//
+			
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+ 	 		[class*="_asset"]
+			{
+				img 
+				{
+					width: 100%;
+				}
+			}
+
+ 	 		@include mq(desktop, large)
+ 	 		{
+ 	 			&:nth-last-child(-n+3)
+				{
+					// Using !important to override some specific setting (eg. on the "Equipe" page)
+					margin-bottom: 0 !important;
+				}
+ 	 		}
+
+ 	 		@include mq(large)
+ 	 		{
+ 	 			&:nth-last-child(-n+4)
+				{
+					// Using !important to override some specific setting (eg. on the "Equipe" page)
+					margin-bottom: 0 !important;
+				}
+ 	 		}
+
+		}
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+	
+	/* - Layout eta
+	 */
+
+	/*
+	 - à partir du viewport `large`: un bloc de deux colonnes sur la grille de 4 colonnes
+	 - sur desktop : un bloc de deux colonnes sur la grille de 3 colonnes
+	 - sur mobile et tablette : un bloc qui occupe 100% de la largeur.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Fiche projet » au niveau de la contrib texte ou citation
+	*/
+
+	&-eta
+	{
+		// background-color: rgba(lime, 0.1);
+
+		// &_col 
+		// {
+		// 	background-color: rgba(lime, 0.2);
+		// }
+
+		//
+		// Setting up the fluid grid
+		//
+		@extend %layout-fluid;
+
+
+		&_content
+		{
+			@extend %layout-fluid-content;
+		}
+
+
+		// 
+		// eta columns
+		//
+		&_col 
+		{
+			//
+			// Mobile and Tablet
+			//
+
+			@extend %layout-linearized-smaller;
+
+
+			//
+			// Desktop
+			//
+
+			@extend %layout-fluid-col2-desktop;
+
+
+			//
+			// Larger screens
+			//
+
+			@extend %layout-fluid-col2-bigger;
+
+
+			//
+			// Bottom margins
+			//
+			
+			@extend %layout-fluid-margin-bottom-desktop;
+ 	 		@extend %layout-fluid-margin-bottom-bigger;
+
+		}
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+
+	
+	/* - Layout theta
+	 */
+
+	/*
+	 - à partir du viewport `desktop`: trois blocs répartis proportionnellement en largeur
+	 - sur mobile et tablette : un bloc qui occupe 100% de la largeur.
+	*/
+
+	/*
+	 - Voir un exemple sur le gabarit « Équipe » au niveau des associés
+	*/
+
+	&-theta
+	{
+		@include mq($until: desktop)
+		{
+			margin-bottom: smash-size( $smash-lh-smaller*2, $smash-fs0-smaller, $smash-unit: "em" );
+		}
+
+		@include mq(desktop)
+		{
+			margin-bottom: smash-size( $smash-lh*2 );
+		}
+
+
+		&_content 
+		{
+			@include smash-clearfix;
+		}
+
+
+		// 
+		// theta columns
+		//
+		&_col 
+		{
+			//
+			// Mobile and Tablet
+			//
+
+			@extend %layout-linearized-smaller;
+
+			@include mq($until: desktop)
+			{
+				&-in 
+				{
+					margin-left: smash-size( $smash-body-margin-smaller );
+				}
+			}
+
+
+			//
+			// Desktop and larger screens
+			//
+
+			@include mq(desktop)
+			{
+				float: left;
+				width: 33.3%;
+				margin-bottom: smash-size( $smash-lh*2 );
+
+				&:nth-child(3n+1) 
+				{
+					clear: left;
+				}
+			}
+
+			@include mq(desktop, large)
+			{
+				&-in 
+				{
+					margin-left: smash-size( $smash-body-margin-left/3*2 );
+				}
+
+				&:nth-child(3n+1) &-in
+				{
+					margin-left: smash-size( $smash-body-margin-left );
+				}
+			}
+
+			@include mq(large)
+			{
+				&-in 
+				{
+					margin-left: smash-size( $smash-body-margin-left-bigger/3*2 );
+				}
+
+				&:nth-child(3n+1) &-in 
+				{
+					margin-left: smash-size( $smash-body-margin-left-bigger );
+				}
+			}
+
+
+
+			
+		}
+
+
+
+		
+		//
+		// Text margins
+		//
+		&_col-in 
+		{
+			
+		}
+	}
+
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Layout fluide (demo) */
+
+	&-fluid
+	{
+		@extend %layout-fluid;
+
+		&_content
+		{
+			@extend %layout-fluid-content;
+		}
+
+		//
+		// Mobile + Tablet
+		//
+
+		@at-root
+		{
+			[class*="#{$smash-prefix-project}-layout-fluid_col"]
+			{
+				@extend %layout-linearized-smaller;
+			}
+		}
+
+
+		//
+		// This one is basically the same than layout alpha.
+		// If possible, use layout alpha instead of using this class.
+		//
+
+		&_col-half
+		{
+			@extend %layout-fluid-col-half;
+		}
+
+		//
+
+
+		&_col
+		{
+			@extend %layout-fluid-col;
+		}
+
+
+		&_col2
+		{
+			@extend %layout-fluid-col2;
+		}
+
+
+		&_col3
+		{
+			@extend %layout-fluid-col3;
+		}
+
+
+		&_col4
+		{
+			@extend %layout-fluid-col4;
+		}
+	}
+
+
+	// ------------------------------------------------------------------------------------------------
+}

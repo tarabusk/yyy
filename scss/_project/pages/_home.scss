@@ -1,0 +1,152 @@
+/* # Styles spécifiques pour la page d’accueil */
+
+
+
+@at-root 
+{
+
+	@include mq(desktop)
+	{
+		.home-html,
+		.home
+		{
+			@media (max-height: smash-size($mq-min-desktop-height-max, $smash-context: $smash-bfs, $smash-unit: "em") ) 
+			{
+				min-height: 100%;
+			}
+
+			@media (min-height: smash-size($mq-min-desktop-height-min, $smash-context: $smash-bfs, $smash-unit: "em") ) 
+			{
+				height: 100%;
+			}
+
+		}
+
+		.home-html:before
+		{
+			content: "";
+			display: block;
+			background: rgba($smash-mineshaft, .35);
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
+		}
+
+		.#{$smash-prefix-project}-header,
+		.#{$smash-prefix-project}-footer 
+		{
+			position: relative;
+		}
+
+
+		.home 
+		{
+			//
+			// Fullscreen effect, only on screens 
+			//
+			
+
+			@media (min-height: smash-size($mq-min-desktop-height-min, $smash-context: $smash-bfs, $smash-unit: "em") ) 
+			{
+				.#{$smash-prefix-project}-page,
+				.#{$smash-prefix-project}-content,
+				.#{$smash-prefix-project}-content-area,
+				.#{$smash-prefix-project}-site-main
+				{
+					height: 100%;
+				}
+
+				.#{$smash-prefix-project}-site-main
+				{
+					display: table;
+					width: 100%;
+					border-collapse: collapse;
+	    
+					& > *
+					{
+						display: table-row;
+
+						& > *
+						{
+							display: table-cell;
+							vertical-align: middle;
+						}
+					}
+				}
+
+
+				// Position the footer and center the content
+				.#{$smash-prefix-project}-header,
+				.#{$smash-prefix-project}-footer 
+				{
+					position: absolute;
+					right: 0;
+					left: 0;
+
+					.#{$smash-prefix-framework}-grid-container
+					{
+						@include mq($until: desktop)
+						{
+							margin-right: smash-size( $smash-gutter-smaller );
+						}
+
+						@include mq(desktop, large)
+						{
+							// To leave space for the "Project" positioned menu item
+							margin-right: smash-size( $smash-project-item-width + $smash-body-margin-left );
+							// 
+						}
+
+						@include mq(large)
+						{
+							// To leave space for the "Project" positioned menu item
+							margin-right: smash-size( $smash-project-item-width + $smash-body-margin-left-bigger );
+						}
+					}
+				}
+
+				.#{$smash-prefix-project}-header
+				{
+					top: 0;	
+				}
+
+				.#{$smash-prefix-project}-footer
+				{
+					bottom: 0;	
+				}
+			}
+
+
+			
+		}
+	}
+}
+
+&-home
+{
+	&-list
+	{
+
+		/**
+		 * MOBILE and TABLET
+		 */
+		@extend %#{$smash-prefix-project}-list-gamma;
+
+
+		/**
+		 * DESKTOP +
+		 */
+		@extend %#{$smash-prefix-project}-list-alpha;
+
+		@include mq(desktop)
+		{
+			@media (max-height: smash-size($mq-min-desktop-height-max, $smash-context: $smash-bfs, $smash-unit: "em") ) 
+			{
+				margin-bottom: smash-size( $smash-lh*2 );
+			}
+		}
+	}
+}

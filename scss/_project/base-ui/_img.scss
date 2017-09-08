@@ -1,0 +1,29 @@
+/* # Déclarations des images */
+
+@at-root 
+{
+	//
+	// For all sizes, check out functions.php
+	//
+
+	@include mq($until: desktop)
+	{
+		.attachment-medium
+		{
+			max-width: smash-size( 385px );
+		}
+
+		.attachment-associates
+		{
+			max-width: smash-size( 585px );
+		}
+	}
+}
+
+&-asset-fullwidth
+{
+	img 
+	{
+		width: 100%;
+	}
+}

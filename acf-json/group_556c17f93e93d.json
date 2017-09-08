@@ -1,0 +1,124 @@
+{
+    "key": "group_556c17f93e93d",
+    "title": "Espace presse",
+    "fields": [
+        {
+            "key": "field_556c1955223c3",
+            "label": "Description",
+            "name": "press_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 500,
+            "rows": "",
+            "new_lines": "br",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_556c186538422",
+            "label": "Vers quoi le titre de cet \u00e9l\u00e9ment doit-il mener\u00a0?",
+            "name": "press_click_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "file": "Fichier",
+                "url": "Lien externe",
+                "nothing": "Rien (pas de lien)"
+            },
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "",
+            "layout": "vertical"
+        },
+        {
+            "key": "field_556c17fedd1e2",
+            "label": "Fichier",
+            "name": "press_file",
+            "type": "file",
+            "instructions": "Formats accept\u00e9s : pdf, zip, rar, jpg, jpeg, doc, docx, png",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_556c186538422",
+                        "operator": "==",
+                        "value": "file"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf, zip, rar, jpg, jpeg, doc, docx, png"
+        },
+        {
+            "key": "field_556c1842caaab",
+            "label": "Lien externe",
+            "name": "press_external_link",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_556c186538422",
+                        "operator": "==",
+                        "value": "url"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "presse"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "!=",
+                "value": "type_presse:dossiers-de-presse"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1504782244
+}

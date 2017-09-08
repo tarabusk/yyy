@@ -1,0 +1,47 @@
+/* # Calculs sur les échelles typographiques */
+
+/*
+ - `$smash-amplitude` : taille des échelles ;
+ - `$smash-scale1` : première échelle typographique ;
+ - `$smash-scale2` : seconde échelle typographique ;
+ - `$smash-number1` : le nombre important principal ;
+ - `$smash-number2` : le nombre important secondaire ;
+*/
+
+$smash-amplitude: 10!default;
+$smash-scale1: $smash-number1;
+$smash-scale2: $smash-number2;
+$smash-i: 0;
+
+/* On calcule dans un premier temps les deux échelles. */
+  
+@while $smash-i < $smash-amplitude
+{
+  $smash-next1: nth($smash-scale1, length($smash-scale1)) / $smash-ratio;
+  $smash-next2: nth($smash-scale2, length($smash-scale2)) / $smash-ratio;
+  
+  $smash-prev1: nth($smash-scale1, 1) * $smash-ratio;
+  $smash-prev2: nth($smash-scale2, 1) * $smash-ratio;
+  
+  $smash-scale1: join($smash-scale1, $smash-next1);
+  $smash-scale2: join($smash-scale2, $smash-next2);
+  
+  $smash-scale1: join($smash-prev1, $smash-scale1);
+  $smash-scale2: join($smash-prev2, $smash-scale2);
+  
+  $smash-i: $smash-i + 1;
+}
+
+/* Puis elles sont fusionnées, triées et les doublons sont supprimés. */
+
+$smash-scale: sl-sort(join($smash-scale1, $smash-scale2));
+
+$smash-roundscale: ();
+
+@each $smash-step in $smash-scale
+{
+  $smash-roundscale: join($smash-roundscale, round($smash-step));
+}
+
+$smash-scale: $smash-roundscale;
+$smash-scale: sl-remove-duplicates($smash-scale);

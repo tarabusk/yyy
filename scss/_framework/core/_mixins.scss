@@ -1,0 +1,622 @@
+/* # Rétablissement du flux */
+
+/*
+http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+@mixin smash-clearfix
+{
+	@if support-legacy-browser('ie', '6') 
+	{
+		zoom: 1;
+	}
+	
+	&:before,
+	&:after
+	{
+		content: '';
+		display: table;
+	}
+	&:after
+	{
+		clear: both;
+	}
+}
+
+/* # _Reset_ (et sa version surchargée) */
+
+@mixin smash-reset
+{
+	margin:  0;
+	padding: 0;
+	border:  0;
+	background-color: transparent; // pour les boutons
+	list-style-type: none; // pour les listes
+}
+
+@mixin smash-reset-i
+{
+	margin:  0 !important;
+	padding: 0 !important;
+	border:  0 !important;
+	background-color: transparent !important; // pour les boutons
+	list-style-type: none !important; // pour les listes
+}
+
+
+/* # Contenu masqué visuellement (et sa version surchargée) */
+
+/*
+https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+*/
+
+@mixin smash-visually-hidden
+{
+	position: absolute;
+	padding: 0;
+	border:  0;
+	height:  1px;
+	width:   1px;
+	overflow: hidden;
+	clip: rect(1px  1px  1px  1px);
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin smash-visually-hidden-i
+{
+	position: absolute !important;
+	padding: 0 !important;
+	border:  0 !important;
+	height:  1px !important;
+	width:   1px !important;
+	overflow: hidden !important;
+	clip: rect(1px  1px  1px  1px) !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+/* Et la possibilité de le ré-afficher (et sa version surchargée) */
+
+@mixin smash-visually-visible
+{
+	position:  static;
+	height:      auto;
+	width:       auto;
+	clip:        auto;
+	overflow: visible;
+}
+
+@mixin smash-visually-visible-i
+{
+	position:  static !important;
+	height:      auto !important;
+	width:       auto !important;
+	clip:        auto !important;
+	overflow: visible !important;
+}
+
+/* # Survol des liens */
+
+/* Pas de soulignement par défaut, puis soulignement au survol ou au focus. */
+
+@mixin smash-deco-roll
+{
+	text-decoration: none;
+	
+	&:hover,
+	&:focus
+	{
+		text-decoration: underline;
+	}
+}
+
+/* Ou soulignement par défaut, puis pas de soulignement au survol ou au focus. */
+
+@mixin smash-deco-unroll
+{
+	text-decoration: underline;
+	
+	&:hover,
+	&:focus
+	{
+		text-decoration: none;
+	}
+}
+
+/* # Étirement des blocs */
+
+@mixin smash-stretch($smash-length: 0)
+{
+	position: absolute;
+	
+	left:   $smash-length;
+	top:    $smash-length;
+	bottom: $smash-length;
+	right:  $smash-length;
+		
+/* Avec une option pour positionner une image centrée quelque soit ça taille. */
+		
+	@if smash-strip-unit($smash-length) < -999
+	{
+		margin: auto;
+	}
+}
+
+/* # Calculs typographiques cumulés sur un bloc */
+
+/* Joue sur la taille de texte, la marge basse et la hauteur de ligne. */
+
+@mixin smash-typo($smash-fs, $smash-context: $smash-fs0, $smash-line-height: $smash-lh, $smash-unit: $smash-prefered-unit, $smash-margin: false)
+{
+	font-size:     smash-size($smash-fs, $smash-context, $smash-unit);
+	line-height:   smash-size( smash-lines($smash-fs) * $smash-line-height, $smash-fs, $smash-unit);
+
+	@if $smash-margin == true{
+		margin-bottom: smash-size($smash-lh, $smash-fs, $smash-unit);
+	}
+	@elseif $smash-margin == double{
+		margin-bottom: smash-size($smash-lh*2, $smash-fs, $smash-unit); 
+	}
+	@elseif $smash-margin == half{
+		margin-bottom: smash-size($smash-lh/2, $smash-fs, $smash-unit); 
+	}
+	@elseif $smash-margin == third{
+		margin-bottom: smash-size($smash-lh/3, $smash-fs, $smash-unit); 
+	}
+	@else 
+	{
+		margin-bottom: 0;
+	}
+}
+
+/* # Calculer une hauteur de lignes en fonction d'un font-size et d'un line-height */
+
+@mixin smash-margin-top($smash-height, $smash-unit: $smash-prefered-unit)
+{
+	@include mq($until: desktop)
+	{
+		margin-top: smash-size( $smash-height * $smash-lh-smaller, $smash-fs0-smaller, $smash-unit);
+		@warn smash-size( $smash-height * $smash-lh-smaller, $smash-fs0-smaller, $smash-unit);
+	}
+	
+	@include mq(desktop)
+	{
+		margin-top: smash-size( $smash-height * $smash-lh, $smash-fs0, $smash-unit);
+		@warn smash-size( $smash-height * $smash-lh, $smash-fs0, $smash-unit);
+	}
+	
+}
+
+/* # Grille via flexbox */
+
+/* Génère un contexte flexbox en colonnes et la possibilité de fusionner ces colonnes. */
+
+/* http://www.alsacreations.com/tuto/lire/1659-une-grille-responsive-avec-flexbox-et-LESS.html */
+
+@mixin smash-grid-flex($smash-nb-cols: $smash-cols-desktop)
+{
+	& > *
+	{
+		flex-basis: 100% / $smash-nb-cols;
+	}
+
+	$smash-i: $smash-nb-cols;
+	
+	@while $smash-i > 1
+	{
+		&_span-#{$smash-i}
+		{
+			flex-basis: (100% / $smash-nb-cols) * $smash-i;
+	
+			$smash-i: $smash-i - 1;
+		}
+	}
+}
+
+/* # Répétition d’un selecteur */
+
+/* Pour surcharger sans pour autant passer par `!important`. (À éviter néanmoins.) */
+
+@mixin smash-repeat($smash-select: '', $smash-i: 1)
+{
+	@if $smash-i > 1
+	{
+		@include repeat($smash-select, $smash-i - 1)
+		{
+			&.#{$smash-prefix-framework}#{$smash-select}
+			{
+				@content;
+			}
+		}
+	}
+	@else
+	{
+		&#{$smash-select}
+			{
+				@content;
+			}
+	}
+}
+
+/* # Centrage pour les grilles fluides */
+
+@mixin smash-grid-center($smash-cols: $smash-cols-desktop)
+{
+	max-width: smash-size(smash-grid-cols-width($smash-cols));
+	
+	@if $smash-external-gutters and $smash-box-sizing
+	{
+		max-width: smash-size((smash-grid-cols-width($smash-cols) + $smash-gutter * 2));    
+	}
+}
+
+/* # Conteneur pour les grilles fluides */
+
+@mixin smash-grid-fluid($smash-cols-contexte: $smash-cols-desktop)
+{
+	@if $smash-external-gutters and not $smash-fluid-gutter-fixed
+	{
+		@warn 'Combination of fluid grid, external gutters and fixed gutter is not supported. ';
+	}
+
+	@if $smash-fluid-gutter-fixed
+	{
+		margin-left:  smash-size($smash-gutter / -2);
+		margin-right: smash-size($smash-gutter / -2);
+	}
+	@else
+	{
+		margin-left:  smash-percent($smash-gutter / -2, smash-grid-cols-width($smash-cols-contexte));
+		margin-right: smash-percent($smash-gutter / -2, smash-grid-cols-width($smash-cols-contexte));
+	}
+	
+	@include smash-clearfix;
+}
+
+
+@mixin smash-grid-fluid-positioned($smash-cols-contexte: $smash-cols-desktop)
+{
+	@if $smash-external-gutters and not $smash-fluid-gutter-fixed
+	{
+		@warn 'Combination of fluid grid, external gutters and fixed gutter is not supported. ';
+	}
+
+	@if $smash-fluid-gutter-fixed
+	{
+		left:  smash-size($smash-gutter / -2);
+		right: smash-size($smash-gutter / -2);
+	}
+	@else
+	{
+		left:  smash-percent($smash-gutter / -2, smash-grid-cols-width($smash-cols-contexte));
+		right: smash-percent($smash-gutter / -2, smash-grid-cols-width($smash-cols-contexte));
+	}
+	
+	@include smash-clearfix;
+}
+
+/* # Colonnes pour les grilles fluides */
+
+@mixin smash-grid-fluid-col($smash-cols-nb, $smash-cols-offset: null, $smash-cols-context: $smash-cols-desktop, $smash-context: $smash-fs0)
+{
+	float: left;
+
+	// cf. https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
+	background-clip: content-box;
+
+	@if $smash-fluid-gutter-fixed
+	{
+		box-sizing: border-box;
+		
+		padding-left:  smash-size($smash-gutter / 2, $smash-context);
+		padding-right: smash-size($smash-gutter / 2, $smash-context);
+		
+		width: smash-percent($smash-cols-nb * $smash-col, $smash-cols-context * $smash-col);  
+	}
+	@else
+	{
+		box-sizing: content-box;
+	
+		padding-left:  smash-percent($smash-gutter / 2,                     (smash-grid-cols-width($smash-cols-context) + $smash-gutter));
+		padding-right: smash-percent($smash-gutter / 2,                     (smash-grid-cols-width($smash-cols-context) + $smash-gutter));
+		width:         smash-percent(smash-grid-cols-width($smash-cols-nb), (smash-grid-cols-width($smash-cols-context) + $smash-gutter));
+	}
+	
+// Avec la technique de l’isolation possible.
+
+// http://www.palantir.net/blog/responsive-design-s-dirty-little-secret 
+	
+	@if $smash-cols-offset
+	{
+		margin-right: -100%;
+		
+		@if $smash-fluid-gutter-fixed
+		{
+			margin-left: smash-percent(($smash-col) * ($smash-cols-offset - 1), ($smash-cols-context * $smash-col));
+		}
+		@else
+		{
+			margin-left: smash-percent(($smash-col + $smash-gutter) * ($smash-cols-offset - 1), (smash-grid-cols-width($smash-cols-context) + $smash-gutter));
+		}
+	}
+}
+
+/* # Utilitaire pour les colonnes fluides */
+
+@mixin smash-grid-fluid_cols($smash-inside: 1, $smash-outside: $smash-cols-desktop)
+{
+	@for $smash-i from 1 through ($smash-outside / $smash-inside)
+	{
+		&:nth-child(#{$smash-outside / $smash-inside}n + #{$smash-i})
+		{
+			@include smash-grid-fluid-col($smash-inside, ($smash-inside * ($smash-i - 1) + 1), $smash-outside);
+			
+			@if $smash-i == 1
+			{
+				clear: left;
+			}
+		}  
+	}
+}
+
+/* # Utilitaire pour annuler un margin-left */
+
+@mixin first()
+{
+	margin-left: 0;
+}
+
+
+/* # Utilitaire pour la fonction calc() */
+
+@mixin calc($property, $expression)
+{
+	#{$property}: -webkit-calc(#{$expression}); 
+	#{$property}: calc(#{$expression}); 
+} 
+
+/* # Cibler la dernière rangée d'éléments dans une grille pour leur appliquer une marge inférieure égale à `$smash-lh`et non pas une marge fluide */
+@mixin layout-last-row-margin-bottom($row: $smash-cols-desktop)
+{
+	&:nth-last-child(-n+#{$row})
+	{
+		margin-bottom: smash-size( $smash-lh );
+	}
+}
+
+
+/* # Jolis soulignés de lien, à la Medium */
+
+@mixin smash-text-decoration($bgcolor: $smash-white,
+											 $color:   currentColor,
+											 $start:   80%,
+											 $height:  5.5%,
+
+											 // Width of the text-shadow
+											 $stroke:  0.025em)
+{
+	$end: $start + $height; // same unit
+	
+	// text-shadow: $stroke *  1 $stroke *  1 0 $bgcolor,
+	// 						 $stroke *  0 $stroke *  1 0 $bgcolor,
+	// 						 $stroke * -1 $stroke *  1 0 $bgcolor,
+	// 						 $stroke *  1 $stroke * -1 0 $bgcolor,
+	// 						 $stroke *  0 $stroke * -1 0 $bgcolor,
+	// 						 $stroke * -1 $stroke * -1 0 $bgcolor,
+	// 						 $stroke *  1 $stroke *  0 0 $bgcolor,
+	// 						 $stroke *  0 $stroke *  0 0 $bgcolor,
+	// 						 $stroke * -1 $stroke *  0 0 $bgcolor;
+			
+	text-decoration: none;
+	
+	background-image: linear-gradient(to bottom,
+										transparent  $start,
+													$color $start,
+													$color $end,
+										transparent  $end);
+
+	.no-cssgradients &
+	{
+		text-decoration: underline;
+	}
+
+}
+
+/* # Utilitaire pour les listes */	
+
+@mixin smash-list-inline-block()
+{
+	& > li
+	{
+		@include inline-block(top);
+	}
+}
+
+@mixin smash-list-inline-block-margin()
+{
+	& > li + li
+	{
+		margin-left: smash-size( $smash-gutter/2 );
+	}
+}
+
+/* # Utilitaires pour les liens */
+
+@mixin smash-link-block()
+{
+	background-image: none !important;
+	text-decoration: none !important;
+}
+
+
+/**
+ * # Utilitaire pour tous les blocs de type img-txt, avec ou sans survol
+ */
+@mixin smash-img-txt
+{
+	[class*="title"]
+	{
+		margin-bottom: 0;
+	}
+
+	a.rm-block
+	{
+		height: 100%;
+
+		* 
+		{
+			cursor: pointer;
+		}
+	}
+
+	a 
+	{
+		&:focus,
+		&:hover,
+		&:active 
+		{
+			[class*="_title"]
+			{
+				@include smash-text-decoration($start: 91%, $height: 4%);
+
+				[class*="zeta"] & 
+				{
+					@include smash-text-decoration($start: 75%, $height: 4%);
+				}
+			}
+		}
+	}	
+
+	&,
+	[class*="_img"],
+	[class*="_content"]
+	{
+		position: relative;
+	}
+
+	[class*="_asset"]
+	{
+		z-index: 1;
+
+		img 
+		{
+			width: 100%;
+		}
+	}
+
+	[class*="_content"]
+	{
+		@include display-flex;
+  		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);
+
+
+		// Needs more than just $smash-lh/2, to create padding for the text.
+		padding: smash-size( $smash-gutter*1.5 );
+		//
+
+
+		[class*="zeta"] & 
+		{
+			padding: smash-size( $smash-gutter );	
+		}
+
+
+		// Mostly IE9
+		.no-flexbox &
+		{
+			padding-top: 45%;
+		}
+		//
+
+		@include smash-stretch(0);
+		text-align: center;
+		z-index: 2;
+
+		&:after 
+		{
+			content: "";
+			display: block;
+			@include smash-stretch( smash-size( $smash-lh/2 ) );
+			background-color: $smash-white;
+			z-index: -1;
+		}
+
+		.#{$smash-prefix-project}-txt-delta
+		{
+			margin-bottom: smash-size( $smash-lh/2 );
+		}
+
+		h2
+		{
+			margin-bottom: 0;
+		}
+
+		span[class*="#{$smash-prefix-project}-txt"]
+	    {
+	        display: inline;
+		}
+
+		[class*="_title"]
+		{
+			@include mq(large)
+			{
+				@include smash-typo($smash-txt-delta, $smash-fs0, $smash-unit: "em", $smash-margin: third);
+			}
+		}
+
+		[class*="_subtitle"]
+		{
+			@include mq($until: large)
+			{
+				@include smash-typo($smash-txt-beta, $smash-fs0, $smash-unit: "em");
+			}
+		}
+
+		[class*="zeta"] & [class*="title"]
+		{
+			@include smash-typo($smash-txt-beta);	
+		}
+
+	}
+}
+
+
+/* # Utilitaire pour les blocs img-txt avec survol */
+@mixin smash-img-txt-hover
+{
+	a 
+	{
+		&:focus,
+		&:hover,
+		&:active 
+		{
+			[class*="_content"]
+			{
+				// Show it
+				@include opacity(1);
+				//
+			}
+
+			[class*="_title"]
+			{
+				background-image: none !important;
+				//text-shadow: none !important;
+
+				.no-cssgradients &
+				{
+					text-decoration: none !important;
+				}
+			}
+		}
+	}
+
+	// Content
+	[class*="_content"]
+	{
+		// Hide it
+		@include opacity(0);
+		@include transition(opacity $smash-duration);
+		//
+	}
+}

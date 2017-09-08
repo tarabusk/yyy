@@ -1,0 +1,213 @@
+/* # Flexbox */
+
+/*
+Note : à partir de IE 10 seulement.
+*/
+
+/*
+https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
+*/
+
+/*
+    <ul class="smash-reset smash-flex smash-flex-row-reverse">
+      <li>Lorem</li>
+      <li class="smash-flex_first">Ipsum</li>
+      <li>Dolor</li>
+    </ul>
+*/
+
+@if $smash-flexbox
+{
+  &-flex
+  {
+    &-column
+    {
+      flex-direction: column;
+      
+      &.smash-flex-reverse
+      {
+        flex-direction: column-reverse;
+      }
+    }
+    &-row
+    {
+      flex-direction: row;
+    }
+    &-reverse
+    {
+      flex-direction: row-reverse;
+    }
+    
+    
+    &_first
+    {
+      order: -99;
+    }
+    &_last
+    {
+      order: 99;
+    }
+    
+    &-nowrap
+    {
+      flex-wrap: nowrap;
+    }
+    &-wrap
+    {
+      flex-wrap: wrap;
+      
+      &-reverse
+      {
+        flex-wrap: wrap-reverse;
+      }
+    }
+    
+    &-justify
+    {
+      &-start
+      {
+        justify-content: flex-start;
+      }
+      &-end
+      {
+        justify-content: flex-end;
+      }
+      &-center
+      {
+        justify-content: center;
+      }
+      &-between
+      {
+        justify-content: space-between;
+      }
+      &-around
+      {
+        justify-content: space-around;
+      }
+    }
+    
+    
+    &-items
+    {
+      &-stretch
+      {
+        align-items: stretch;
+      }
+      &-start
+      {
+        align-items: flex-start;
+      }
+      &-start
+      {
+        align-items: flex-start;
+      }
+      &-end
+      {
+        align-items: flex-end;
+      }
+      &-center
+      {
+        align-items: center;
+      }
+      &-baseline
+      {
+        align-items: baseline;
+      }
+    }
+    
+    
+    &-content
+    {
+      &-stretch
+      {
+        align-content: stretch;
+      }
+      &-start
+      {
+        align-content: flex-start;
+      }
+      &-start
+      {
+        align-content: flex-start;
+      }
+      &-end
+      {
+        align-content: flex-end;
+      }
+      &-center
+      {
+        align-content: center;
+      }
+      &-between
+      {
+        justify-content: space-between;
+      }
+      &-around
+      {
+        justify-content: space-around;
+      }
+    }
+    
+    &_grow
+    {
+      @for $smash-i from 1 through 10
+      {
+        &-#{$smash-i}
+        {
+          flex-grow: $smash-i;
+        }
+      }
+    }
+    &_shrink
+    {
+      @for $smash-i from 1 through 10
+      {
+        &-#{$smash-i}
+        {
+          flex-shrink: $smash-i;
+        }
+      }
+    }
+    
+    &_basis
+    {
+      &,
+      &-auto
+      {
+        flex-basis: auto;
+      }
+      &-0
+      {
+        flex-basis: 0;
+      }
+    }
+    
+    &_item
+    {
+      &-stretch
+      {
+        align-self: stretch;
+      }
+      &-start
+      {
+        align-self: flex-start;
+      }
+      &-start
+      {
+        align-self: flex-start;
+      }
+      &-end
+      {
+        align-self: flex-end;
+      }
+      &-center
+      {
+        align-self: center;
+      }
+      &-baseline
+      {
+        align-self: baseline;
+      }
+    }
+  }
+}

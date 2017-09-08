@@ -1,0 +1,61 @@
+/* # Styles spécifiques au pied de page */
+
+
+// Main footer
+&-footer
+{ 
+	@extend %#{$smash-prefix-project}-header-footer;
+
+	.#{$smash-prefix-framework}-grid-container
+	{
+		@include box-shadow(0 -1px $smash-silver);
+	}
+
+	// @include mq($until: desktop)
+	// {
+	// 	position: relative;
+	// 	z-index: 19; // must be higher than .#{$smash-prefix-project}-header-nav_content's z-index
+	// }
+
+	//
+	// Footer nav
+	//
+
+	&-nav
+	{
+		text-align: right;
+
+		// The first element of the menu is positioned
+		&_list 
+		{
+			position: relative;
+			min-height: smash-size( $smash-lh );
+		}
+
+		.menu-item:first-child
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			text-align: left;
+		}
+		//
+		
+		&,
+		&_list
+		{
+			margin-bottom: 0;
+		}
+
+		// a 
+		// {
+		// 	padding-top: smash-size($smash-lh);
+		// 	padding-bottom: smash-size($smash-lh);
+		// }
+
+		.menu-item + .menu-item
+		{
+			margin-left: smash-size($smash-gutter);
+		}
+	}
+}

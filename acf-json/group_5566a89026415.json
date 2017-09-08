@@ -1,0 +1,227 @@
+{
+    "key": "group_5566a89026415",
+    "title": "Contact",
+    "fields": [
+        {
+            "key": "field_5566a894e1ec7",
+            "label": "Agences",
+            "name": "contact_agencies",
+            "type": "repeater",
+            "instructions": "Saisissez les coordonn\u00e9es de chaque agence TOA.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "row",
+            "button_label": "Ajouter une agence",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_5566a8bee1ec8",
+                    "label": "Zone g\u00e9ographique de l'agence",
+                    "name": "zone",
+                    "type": "text",
+                    "instructions": "Permettre en un clin d'\u0153il de situer l'agence g\u00e9ographiquement. Exemples : Paris, Strasbourg\u2026",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 150,
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566a931e1ec9",
+                    "label": "Adresse : num\u00e9ro et rue",
+                    "name": "address_street",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 500,
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566aabdb51e6",
+                    "label": "Adresse : compl\u00e9ment",
+                    "name": "address_secundary",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566aa6cb51e5",
+                    "label": "Adresse : code postal",
+                    "name": "address_postcode",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": 99999,
+                    "step": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566aaf2b51e7",
+                    "label": "Adresse : ville",
+                    "name": "address_city",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566a95de1eca",
+                    "label": "Num\u00e9ro de t\u00e9l\u00e9phone",
+                    "name": "phone",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 20,
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566a96ce1ecb",
+                    "label": "Num\u00e9ro de fax",
+                    "name": "fax",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 20,
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5566af9ad5948",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "gallery-project",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "toa-template-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "format",
+        "page_attributes",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1504782205
+}

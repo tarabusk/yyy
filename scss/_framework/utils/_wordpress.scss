@@ -1,0 +1,472 @@
+/* # WordPress classes */
+
+/* # _Alignements texte_ */
+
+/*
+		<p class="aligncenter">Lorem ipsum</p>
+*/
+
+@at-root
+{
+	// Patch a bug with WordPress admin bar
+	html #wpadminbar
+	{
+		position: fixed !important;
+	}
+
+	/**
+	 * Alignments
+	 */
+	.aligncenter
+	{
+		&,
+		*
+		{
+			text-align: center;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	.alignleft,
+	.alignright 
+	{
+		margin-bottom: smash-size($smash-lh/2);
+	}
+
+	.alignnone
+	{
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	@include mq(tablet)
+	{
+		.alignleft
+		{
+			float: left;
+			margin-right: smash-size($smash-gutter);
+			margin-left: 0;
+		}
+
+		.alignright
+		{
+			float: right;
+			margin-left: smash-size($smash-gutter);
+			margin-right: 0;
+		}
+	}
+
+
+	/**
+	 * Page structure
+	 */
+
+	[class*="-header"]
+	{
+		.page-title,
+		.entry-title
+		{
+			@extend %#{$smash-prefix-project}-smash-txt-gamma;
+
+			[class$="subtitle"] + &
+			{
+				@extend %#{$smash-prefix-project}-smash-txt-beta;
+			}
+
+			+ .#{$smash-prefix-project}-txt-beta
+			{
+				margin-top: smash-size( $smash-lh/-2 );
+			}
+		}
+	}
+
+	.entry-header .entry-title,
+	.page-header .page-title
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;		
+
+		a 
+		{
+			@extend %link-pretty-underline-hover-alpha;
+		}
+	}
+
+	.entry-header,
+	.entry-footer,
+	.page-header,
+	.page-footer
+	{
+		a 
+		{
+			@extend %link-pretty-underline-hover-beta;
+		}
+
+		.post-edit-link-container
+		{
+			clear: both;
+			margin-bottom: 0;
+		}
+	}
+
+	.post-edit-link
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;
+	}
+
+	.entry-content,
+	.page-content,
+	.entry-footer,
+	.page-footer 
+	{
+		margin-bottom: smash-size( $smash-lh, $smash-unit: "em" );
+	}
+
+
+	
+
+
+	/**
+	 * Edit links
+	 */
+	.post-edit-link-container
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-beta;
+	}
+
+
+	
+
+	/**
+	 * Images
+	 */
+	.gallery-item,
+	.entry-content,
+	.entry-summary
+	{
+		img
+		{
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	// .attachment-medium
+	// {
+	//   max-width: smash-size( 385px );
+	// }
+
+	/**
+	 * Galleries
+	 */
+	.gallery
+	{
+		@include smash-clearfix;
+
+		img 
+		{
+			width: 100%;
+		}
+
+		@include mq($until: desktop)
+		{
+			margin-bottom: smash-size( $smash-lh );
+		}
+
+		@include mq(desktop)
+		{
+			margin-bottom: smash-size( $smash-lh*2 );
+		}
+		
+	}
+
+	.gallery-item
+	{
+		//@include inline-block(top);
+		float: left;
+		width: 100%;
+		text-align: center;
+
+		
+		
+	}
+
+	figure.gallery-item
+	{
+		margin: 0;
+	}
+
+
+	//
+	// One column
+	//
+	.gallery-columns-1 
+	{
+		.gallery-item
+		{
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		
+		// &.gallery-size-medium .gallery-item
+		// {
+		//   @include rem(max-width, 311px);
+		// }
+	}
+
+
+	//
+	// Two columns
+	//
+	.gallery-columns-2 
+	{
+		@include mq(tablet)
+		{
+			.gallery-item
+			{
+				width: 50%;
+				
+				// &:nth-child(2n+1)
+				// {
+				//   @include first();
+				// }
+			}
+
+			&.gallery-size-thumbnail
+			{
+				//@include rem(max-width, 403px);
+				
+				.gallery-item
+				{
+					//@include rem(width, 200px);
+				}
+			}
+		}
+
+		
+
+	}
+
+
+	//
+	// Three columns
+	//
+	.gallery-columns-3 
+	{
+		.gallery-item
+		{
+			// @include mq(S, L)
+			// {
+			//   @include rem(max-width, 311px);
+			// }
+			
+			@include mq(tablet)
+			{
+				width: 33.3%;
+				
+				// &:nth-child(3n+1)
+				// {
+				//   @include first();
+				// }
+			}
+		}
+	}
+
+
+
+	//
+	// Four columns
+	//
+	.gallery-columns-4 .gallery-item
+	{
+		@include mq(tablet)
+		{
+			width: 25%;
+					
+			// &:nth-child(4n+1)
+			// {
+			//   @include first();
+			// }
+
+			// On a single project, the 4 column gallery looks like a 2 column one.
+			.single-projet &
+			{
+				width: 50%;
+			}
+		}
+	}
+
+	//
+	// Five columns
+	//
+	.gallery-columns-5 .gallery-item
+	{
+		@include mq(tablet)
+		{
+			width: 20%;
+			
+			// &:nth-child(5n+1)
+			// {
+			//   @include first();
+			// }
+		}
+	}
+
+
+	//
+	// Six columns
+	//
+	.gallery-columns-6 .gallery-item
+	{
+		@include mq(tablet)
+		{
+			width: 16.66%;
+					
+			// &:nth-child(6n+1)
+			// {
+			//   @include first();
+			// }
+		}
+	}
+
+
+
+	//
+	// Seven columns
+	//
+	.gallery-columns-7 .gallery-item
+	{
+		@include mq(tablet)
+		{
+			width: 14.28%;
+					
+			// &:nth-child(7n+1)
+			// {
+			//   @include first();
+			// }
+		}
+	}
+
+
+
+	//
+	// Eight columns
+	//
+	.gallery-columns-8 .gallery-item
+	{
+		@include mq(tablet)
+		{
+			width: 12.5%;
+					
+			// &:nth-child(8n+1)
+			// {
+			//   @include first();
+			// }
+		}
+	}
+
+
+
+	//
+	// Nine columns
+	//
+	.gallery-columns-9 .gallery-item
+	{
+		@include mq(tablet)
+		{
+			width: 11.11%;
+					
+			// &:nth-child(9n+1)
+			// {
+			//   @include first();
+			// }
+		}
+	}
+
+
+
+	/**
+	 * @subsection All Mobile Galleries
+	 * They're linearized because there's not enough space.
+	 */
+	@include mq($until: tablet)
+	{
+		.gallery
+		{
+			.gallery-item
+			{
+				display: block; 
+			}
+			
+			&.gallery-size-medium .gallery-item
+			{
+				width: 100%;
+				//@include rem(max-width, 311px);
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+	}
+
+
+	// --------------------------------------------------------------------------
+
+
+	.gallery-caption 
+	{
+		display: none;
+	}
+
+	.gallery-icon
+	{
+		a
+		{
+			display: block;
+		}
+		
+	}
+
+
+
+	.wp-caption
+	{
+		margin-bottom: smash-size($smash-lh);
+
+		@include mq($until: tablet)
+		{
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	.wp-caption-text
+	{
+		padding-top: smash-size($smash-lh/2);
+		@include smash-typo($smash-txt-beta);
+		text-align: center;
+		
+		@include mq(tablet)
+		{
+			.alignleft &
+			{
+				text-align: left;
+			}
+
+			.alignright &
+			{
+				text-align: right;
+
+			}
+		}
+	}
+
+
+	/**
+	 * A11y content
+	 */
+	 .screen-reader-text
+	 {
+		@extend %visually-hidden;
+	 }
+}

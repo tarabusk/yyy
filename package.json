@@ -1,0 +1,12 @@
+{
+  "name": "TOA",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "authors": [
+    "Residence Mixte <contact@residence-mixte.com>"
+  ],
+  "homepage": "http://toa-archi.com/",
+  "dependencies": {
+    "styledocco": "^0.6.6"
+  }
+}

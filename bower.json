@@ -1,0 +1,23 @@
+{
+  "name": "TOA",
+  "version": "1.0.0",
+  "homepage": "http://toa-archi.com/",
+  "authors": [
+    "Residence Mixte <contact@residence-mixte.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "modernizr": "~2.8.3",
+    "sass-mq": "~2.2.0",
+    "SassyLists": "~2.2.4",
+    "modularized-normalize-scss": "~3.0.2"
+  },
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "hashgrid": "*"
+  }
+}

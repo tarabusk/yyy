@@ -1,0 +1,214 @@
+/* # Liens */
+
+/* # Opacité au hover */
+
+@at-root 
+{
+	%link-opacity-hover
+	{
+		@extend %link-no-underline;
+		@include opacity(.5);
+		@include transition(opacity $smash-duration);
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			@include opacity(1);
+		}
+	}
+
+	%link-opacity-reset
+	{
+		@include opacity(1);
+
+		&,
+		&:focus,
+		&:hover,
+		&:active
+		{
+			cursor: default;
+		}
+	}
+
+	%link-pretty-underline
+	{
+		display: inline;
+		@include smash-text-decoration($start: 96%, $height: 4%);
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			background-image: none;
+
+			.no-cssgradients &
+			{
+				text-decoration: none;
+			}
+		}
+
+		
+	}
+
+	// For links inside beta texts 
+
+	%link-pretty-underline-beta
+	{
+		display: inline;
+		@include smash-text-decoration($start: 96%, $height: 4%);
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			background-image: none;
+
+			.no-cssgradients &
+			{
+				text-decoration: none;
+			}
+		}
+
+		
+	}
+
+	//
+
+
+
+	%link-pretty-underline-hover
+	{
+		display: inline;
+		background-image: none;
+		//background: blue;
+
+		// To avoid the fake underline to stick to the text
+		padding-bottom: smash-size( 4px );
+
+		&,
+		.no-cssgradients &
+		{
+			text-decoration: none;
+		}
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			@include smash-text-decoration($start: 96%, $height: 4%);
+		}
+	}
+
+	// For links inside alpha texts 
+
+	%link-pretty-underline-hover-alpha
+	{
+		display: inline;
+		background-image: none;
+
+		&,
+		.no-cssgradients &
+		{
+			text-decoration: none;
+		}
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			@include smash-text-decoration($start: 98%, $height: 2%);
+
+			// .#{$smash-prefix-project}-layout-dark &
+			// {
+			// 	@include text-shadow(none);
+			// }
+		}
+	}
+
+	//
+
+
+	// For links inside beta texts 
+
+	%link-pretty-underline-hover-beta
+	{
+		display: inline;
+		background-image: none;
+
+		&,
+		.no-cssgradients &
+		{
+			text-decoration: none;
+		}
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			@include smash-text-decoration($start: 96%, $height: 4%);
+
+			// .#{$smash-prefix-project}-layout-dark &
+			// {
+			// 	@include text-shadow(none);
+			// }
+		}
+	}
+
+	//
+
+	// For links inside delta texts 
+
+	%link-pretty-underline-hover-delta
+	{
+		display: inline;
+		background-image: none;
+
+
+
+		&,
+		.no-cssgradients &
+		{
+			text-decoration: none;
+		}
+
+		&:focus,
+		&:hover,
+		&:active
+		{
+			@include smash-text-decoration($start: 96%, $height: 4%);
+
+			// .#{$smash-prefix-project}-layout-dark &
+			// {
+			// 	@include text-shadow(none);
+			// }
+		}
+	}
+
+	//
+
+	%link-no-underline
+	{
+		background-image: none;
+		//@include text-shadow(none);
+		padding-bottom: 0;
+
+		.no-cssgradients &
+		{
+			text-decoration: none;
+		}		
+	}
+
+		
+}
+
+// &-links 
+// {
+// 	&-default
+// 	{
+// 		a 
+// 		{
+// 			@extend %link-pretty-underline-hover;
+// 		}	
+// 	}
+// }

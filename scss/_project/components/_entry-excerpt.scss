@@ -1,0 +1,175 @@
+/* # Styles spécifiques pour les posts / contenus standards préfixés par .entry-* */
+
+@at-root
+{
+	
+	.entry
+	{
+		&-meta
+		{
+
+			@extend %#{$smash-prefix-project}-font-larsseit;
+
+			@include mq(desktop)
+			{
+				[class*="-header"] &
+				{
+					text-align: right;
+				}
+			}
+
+			@include mq(large)
+			{
+				.#{$smash-prefix-project}-layout_meta &
+				{
+					text-align: right;
+				}
+			}
+		}
+
+		&-share
+		{
+			ul, ol
+			{
+				@extend %#{$smash-prefix-framework}-list-inline-block;
+				margin-bottom: 0;
+
+				> li + li 
+				{
+					&:before
+					{
+						content: "/";
+						padding-right: smash-size( $smash-gutter/4 );
+						padding-left: smash-size( $smash-gutter/4 );
+					}
+				}
+			}
+		}
+	}
+}
+
+
+&-excerpt
+{
+	&-bigger
+	{
+		@extend %#{$smash-prefix-project}-smash-txt-alpha;
+	}
+}
+
+&-more
+{
+	@extend %#{$smash-prefix-project}-font-larsseit;
+
+	* + &
+	{
+		margin-top: smash-size( $smash-lh, $smash-unit: "em" );
+	}
+}
+
+
+/**
+ * Pagination
+ */
+&-posts 
+{
+	&-navigation
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;
+		
+		.nav-previous,
+		.nav-next
+		{
+			max-width: 50%;
+		}
+
+		.nav-previous
+		{
+			float: left;
+
+			&:before
+			{
+				content: "«";
+				padding-right: smash-size( $smash-gutter/3 );
+			}
+		}
+
+		.nav-next
+		{
+			float: right;
+
+			&:after
+			{
+				content: "»";
+				padding-left: smash-size( $smash-gutter/3 );
+			}
+		}
+	}
+
+	&-pagination
+	{
+		@extend %#{$smash-prefix-project}-font-larsseit;
+
+		ul, 
+		ol 
+		{
+			@extend %#{$smash-prefix-framework}-list-inline-block;
+			margin-bottom: 0;
+		}
+
+		li + li 
+		{
+			@include mq($until: desktop)
+			{
+				margin-left: smash-size( $smash-gutter/2 );
+			}
+
+			@include mq(desktop)
+			{
+				margin-left: smash-size( $smash-gutter );
+			}
+		}
+
+		.current
+		{
+			color: $smash-mineshaft;
+		}
+
+		a 
+		{
+			@extend %link-opacity-hover;
+		}
+	}
+}
+
+&-nav
+{
+	&-links 
+	{
+		@include smash-clearfix;
+	}
+
+	&-previous,
+	&-next
+	{
+		width: 50%;
+	}
+
+	&-previous
+	{
+		@include mq(tablet)
+		{
+			float: left;
+		}
+	}
+
+	&-next
+	{
+		text-align: right;
+
+		@include mq(tablet)
+		{
+			float: right;
+		}
+	}
+}

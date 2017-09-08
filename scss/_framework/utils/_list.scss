@@ -1,0 +1,212 @@
+/* # Gestion des listes */
+
+@at-root
+{
+  
+
+  %#{$smash-prefix-framework}-list-inline-block
+  {
+    @include smash-list-inline-block();
+  }
+
+
+  %#{$smash-prefix-framework}-list-inline-block-margin
+  {
+    @include smash-list-inline-block-margin();
+  }
+
+}
+
+&-list
+{
+
+/* # _Reset_ partiel */
+
+/*
+    <ul class="smash-list">
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+    </ul>
+*/
+
+  &
+  {
+    padding: 0;
+    list-style-type: none;
+  }
+
+/* # Affichage des _items_ en ligne */
+
+/*
+Note : des commentaires sont nécessaires si l’on souhaite supprimer les nœuds textes.
+*/
+
+/*
+    <ul class="smash-list smash-list-inline-block"><!--
+     --><li>Lorem ipsum dolor</li><!--
+     --><li>Lorem ipsum dolor</li><!--
+     --><li>Lorem ipsum dolor</li><!--
+    </ul>
+*/
+
+  &-inline-block
+  {
+    @extend %#{$smash-prefix-framework}-list-inline-block;
+
+    &-margin 
+    {
+      @extend %#{$smash-prefix-framework}-list-inline-block-margin;
+    }
+  }
+
+/* # Affichage des _items_ en flottants */
+
+/*
+Note : le flux est automatiquement rétablit.
+*/
+
+/*
+    <ul class="smash-list smash-list-float">
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+    </ul>
+*/
+
+  &-float
+  {
+    @include smash-clearfix;
+    
+    & > *
+    {
+      float: left;
+    }
+  }
+
+/* # Affichage des _items_ séparés par des barres verticales */
+
+/*
+Note : à combiner avec `.smash-list-float` ou `.smash-list-inline-block`.
+*/
+
+/*
+    <ul class="smash-list smash-list-float smash-list-pipe">
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+    </ul>
+*/
+
+  &-pipe
+  {
+    & > *
+    {
+      &:before
+      {
+        content: '\00A0| ';
+      }
+    }
+  }
+  
+  &-pipe,
+  &-greater,
+  &-slash
+  {
+    & > *
+    {
+      &:first-child
+      {
+        &:before
+        {
+          content: none;
+        }
+      }
+    }
+  }
+
+/* # Affichage des _items_ séparés par des signes supérieurs */
+
+/*
+Note : à combiner avec `.smash-list-float` ou `.smash-list-inline-block`.
+*/
+
+/*
+    <ul class="smash-list smash-list-float smash-list-greater">
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+    </ul>
+*/
+
+  &-greater
+  {
+    & > *
+    {
+      &:before
+      {
+        content: '\00A0> ';
+      }
+    }
+  }
+
+/* # Affichage des _items_ séparés par des barres obliques */
+
+/*
+Note : à combiner avec `.smash-list-float` ou `.smash-list-inline-block`.
+*/
+
+/*
+    <ul class="smash-list smash-list-float smash-list-slash">
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+      <li>Lorem ipsum dolor</li>
+    </ul>
+*/
+
+  &-slash
+  {
+    & > *
+    {
+      &:before
+      {
+        content: '\00A0/ ';
+      }
+    }
+  }
+
+/* # Affichage des _items_ centrés et sans décoration */
+
+  &-centered
+  {
+    text-align: center;
+
+    ul,
+    ol 
+    {
+      list-style: none;
+    }
+  }
+
+
+/* # Affichage des _items_ séparés par une marge inférieure */
+
+  &-lines 
+  {
+    & > li
+    {
+      margin-bottom: smash-size( $smash-lh );
+    }
+  }
+
+/* # Affichage des _items_ séparés par une marge inférieure réduite de moitié */
+
+  &-sweet-lines 
+  {
+    & > li
+    {
+      margin-bottom: smash-size( $smash-lh/2 );
+    }
+  }
+
+}

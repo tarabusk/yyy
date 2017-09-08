@@ -1,0 +1,58 @@
+/* # Gestion des médias */
+
+// &-media
+// {
+
+/* # Flottants */
+
+/*
+Note : peut par exemple être combiné avec `.smash-margin-top-0`.
+*/
+
+/*
+    <p>
+      <img src="http://maquettes.garden.clever-age.net/img/48/000/fff" alt="" class="smash-media-float-left smash-margin-top-0" />
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.
+    </p>
+*/
+
+  // &-float-left
+  // {
+  //   float: left;
+  //   margin: smash-size($smash-lh, $smash-fs0);
+  //   margin-left: 0;
+  //   margin-right: smash-size($smash-gutter, $smash-fs0);
+  // }
+
+/*
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+      Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.
+      <img src="http://maquettes.garden.clever-age.net/img/48/000/fff" alt="" class="smash-media-float-right" />
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis.
+      Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus.
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+    </p>
+*/
+
+  // &-float-right
+  // {
+  //   float: right;
+  //   margin: smash-size($smash-lh, $smash-fs0);
+  //   margin-right: 0;
+  //   margin-left: smash-size($smash-gutter, $smash-fs0);
+  // }
+
+/*
+    <p>
+      <img src="http://maquettes.garden.clever-age.net/img/1200x120/000/fff" alt="" class="smash-media-max" />
+    </p>
+*/
+
+//   &-max
+//   {
+//     max-width: 100%;
+//     height: auto;
+//   }
+
+// }

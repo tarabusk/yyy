@@ -1,0 +1,179 @@
+/* # Styles layout généraux */
+
+@at-root
+{
+	[class*="-header"] .#{$smash-prefix-framework}-grid-container
+	{
+		@include mq($until: desktop)
+		{
+			margin-bottom: smash-size( $smash-lh, $smash-unit: "em" );
+		}
+
+		@include mq(desktop)
+		{
+			// @media (max-height: smash-size($mq-min-desktop-height-txt-max, $smash-context: $smash-bfs, $smash-unit: "em") )
+			// {
+			// 	margin-bottom: smash-size( $smash-lh, $smash-unit: "em");	
+			// }			
+
+			// @media (min-height: smash-size($mq-min-desktop-height-txt-min, $smash-context: $smash-bfs, $smash-unit: "em") )
+			// {
+				margin-bottom: smash-size( $smash-lh*2, $smash-unit: "em");	
+			// }
+		}
+	}
+
+	.#{$smash-prefix-project}-section,
+	.#{$smash-prefix-project}-asset-fullwidth
+	{
+		// *:last-child 
+		// {
+		// 	margin-bottom: 0;
+		// }
+
+		// @include mq($until: desktop)
+		// {
+		// 	margin-bottom: smash-size( $smash-lh, $smash-unit: "em" );
+		// }
+
+		// @include mq(desktop)
+		// {
+			// @media (max-height: smash-size($mq-min-desktop-height-txt-max, $smash-context: $smash-bfs, $smash-unit: "em") )
+			// {
+			// 	margin-bottom: smash-size( $smash-lh, $smash-unit: "em");	
+			// }			
+
+			// @media (min-height: smash-size($mq-min-desktop-height-txt-min, $smash-context: $smash-bfs, $smash-unit: "em") )
+			// {
+				margin-bottom: smash-size( $smash-lh*2, $smash-unit: "em");	
+			// }
+		// }
+	}
+
+	[class*="-header"] .#{$smash-prefix-framework}-grid-container,
+	.#{$smash-prefix-project}-section
+	{
+		[class*="#{$smash-prefix-project}-layout-"]:last-child
+		{
+			margin-bottom: 0;
+		}
+	}
+
+	[class*="-header-mini"] .#{$smash-prefix-framework}-grid-container
+	{
+		@include mq(desktop)
+		{
+			margin-bottom: smash-size( $smash-lh );
+
+			@include mq(desktop)
+			{
+				// @media (min-height: smash-size($mq-min-desktop-height-txt-min, $smash-context: $smash-bfs, $smash-unit: "em") )
+				// {
+					margin-top: smash-size( $smash-lh*-1 );
+				// }
+			}
+		}
+	}
+
+	
+}
+
+/**
+ * Separators
+ */
+
+&-sep 
+{
+	@at-root 
+	{
+		[class*="#{$smash-prefix-project}-sep"]
+		{
+			//margin-bottom: smash-size( $smash-lh );
+			margin-bottom: 0;
+		}
+
+		[class*="#{$smash-prefix-project}-sep"].#{$smash-prefix-project}-section
+		{
+			margin-bottom: smash-size( $smash-lh*2 );
+		}
+	}
+
+	&-double 
+	{
+		@include box-shadow(0 1px 0 $smash-silver, 0 -1px 0 $smash-silver);
+		padding-top: smash-size( $smash-lh );
+		padding-bottom: smash-size( $smash-lh );
+	}
+
+	// Top separator
+	@at-root 
+	{
+		%sep-top 
+		{
+			@include box-shadow(0 -1px 0 $smash-silver);
+
+			@include mq($until: desktop)
+			{
+				padding-top: smash-size( $smash-lh );
+
+				&.#{$smash-prefix-project}-section
+				{
+					padding-top: smash-size( $smash-lh*2 );
+				}
+			}
+
+			@include mq(desktop)
+			{
+				padding-top: smash-size( $smash-lh*2 );
+			}
+		}
+	}
+
+	&-top
+	{
+		@extend %sep-top;
+
+		&.#{$smash-prefix-project}-projects-related
+		{
+			margin-top: smash-size( $smash-lh*-1 );
+		}
+	}
+
+	&-post
+	{
+		& + &
+		{
+			.entry-header > .#{$smash-prefix-framework}-grid-container
+			{
+				@extend %sep-top;
+			}
+		}
+	}
+
+
+	// Bottom separator
+	@at-root 
+	{
+		%sep-bottom
+		{
+			@include box-shadow(0 1px 0 $smash-silver);
+
+			@include mq($until: desktop)
+			{
+				padding-bottom: smash-size( $smash-lh );
+			}
+
+			@include mq(desktop)
+			{
+				padding-bottom: smash-size( $smash-lh*2 );
+			}
+		}
+	}
+
+	&-bottom
+	{
+		@extend %sep-bottom;
+
+	}
+	
+}

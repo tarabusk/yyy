@@ -1,0 +1,10 @@
+/* # Styles spécifiques pour la page Distinctions */
+
+&-distinctions
+{
+	.#{$smash-prefix-project}-txt-delta
+	{
+		margin-bottom: smash-size( $smash-lh/2, $smash-txt-delta, "em");
+	}
+
+}

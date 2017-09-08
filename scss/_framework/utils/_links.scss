@@ -1,0 +1,60 @@
+/* # Liens */
+
+&-deco
+{
+
+/*
+    <p><a href="#" class="smash-deco-roll">Lorem ipsum</a></p>
+*/
+
+  &-roll
+  {
+    @include smash-deco-roll;
+  }
+
+/*
+    <p><a href="#" class="smash-deco-unroll">Lorem ipsum</a></p>
+*/
+
+  &-unroll
+  {
+    @include smash-deco-unroll;
+  }
+
+/*
+    <p><a href="#" class="smash-deco-none">Lorem ipsum</a></p>
+*/
+
+  &-none
+  {
+    text-decoration: none;
+  }
+
+/*
+    <p><a href="#" class="smash-deco-underline">Lorem ipsum</a></p>
+*/
+
+  &-underline
+  {
+    text-decoration: underline;
+  }
+
+/*
+    <p><a href="#" class="smash-deco-overline">Lorem ipsum</a></p>
+*/
+
+  &-overline
+  {
+    text-decoration: overline;
+  }
+
+/*
+    <p><a href="#" class="smash-deco-del">Lorem ipsum</a></p>
+*/
+
+  &-del
+  {
+    text-decoration: line-through;
+  }
+
+}

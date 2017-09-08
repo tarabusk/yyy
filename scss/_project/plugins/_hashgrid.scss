@@ -1,0 +1,185 @@
+/* # #grid */
+
+#grid
+{
+
+/*
+Le conteneur est positionné par dessus le contenu. Sa hauteur sera caclulée en JS.
+*/
+
+	overflow: hidden;
+	position: absolute;
+	//left:  0;
+	right: 0;
+	top:   0;
+
+	@extend %layout-fluid;
+
+	// @include mq($until: desktop)
+	// {
+	// 	margin-right: smash-size( $smash-gutter/2 );
+	// 	margin-left: smash-size( $smash-gutter/2 );
+	// }
+
+	@include mq(desktop, large)
+	{
+		right: smash-size( $smash-body-margin-right );
+		left: smash-size( $smash-body-margin-left );
+	}
+
+	@include mq(large)
+	{
+		right: smash-size( $smash-body-margin-right-bigger );
+		left: smash-size( $smash-body-margin-left-bigger );
+	}
+
+	
+/*
+La grille horizontale est gérée via des `gradients`.
+*/
+	
+	background-image: linear-gradient(transparent calc(100% - 1px), $smash-debug 100%);
+
+	background-position: 0 0,
+										 0 smash-rem($smash-lh / 2);
+
+	background-size: 100px smash-rem($smash-lh),
+								 100px smash-rem($smash-lh);
+
+	background-repeat: repeat;
+
+	.horiz
+	{
+		height: smash-rem($smash-lh);
+	}
+	
+/*
+La grille verticale est gérée via des `backgrounds`.
+*/
+		
+	.vert-container
+	{
+
+		width: auto !important; // to overwrite JS inline styles
+
+		@include mq($until: tablet)
+		{
+			display: none !important;
+		}
+
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid-positioned($fluid-content-desktop);
+		}
+
+		@include mq(large)
+		{
+			@include smash-grid-fluid-positioned($fluid-content-bigger);
+		}
+	}
+
+	.vert
+	{
+		@extend %layout-fluid-col;
+		background-color: transparentize(black, 0.85);
+
+		&:first-child
+		{
+			margin-left: 0;
+		}
+		
+	}
+		
+/* # La grille horizontale simple */
+
+/*
+On masque la grille verticale.
+*/
+		
+	&.grid-1
+	{
+		.vert
+		{
+			background-color: transparent;
+		}
+	}
+
+/* # La grille horizontale double */
+
+/*
+On masque la grille verticale et on passe un double `gradient`.
+*/
+	
+	&.grid-2
+	{
+		background-image: linear-gradient(transparent calc(100% - 1px), $smash-debug 100%),
+											linear-gradient(transparent calc(100% - 1px), transparentize(black, 0.5) 100%);
+										
+		.vert
+		{
+			background-color: transparent;
+		}
+	}
+	
+/* # La grille verticale */
+
+/*
+On masque la grille horizontale.
+*/
+	
+	&.grid-3
+	{
+		background-image: none;
+	}
+	
+/* # Toutes les grilles */
+
+/*
+On passe un double `gradient`.
+*/
+	
+	&.grid-4
+	{
+		background-image: linear-gradient(transparent calc(100% - 1px), $smash-debug 100%),
+											linear-gradient(transparent calc(100% - 1px), transparentize(black, 0.5) 100%);
+	}
+	
+/* # La grille horizontale simple et la grille verticale */
+
+/*
+Cas par défaut.
+*/
+	
+	&.grid-5
+	{
+	
+	}
+}
+
+
+// Show the active breakpoint in the top right corner of the viewport
+@if (length($mq-show-breakpoints) > 0)
+{
+	body:before
+	{
+		display: none;
+	}
+
+	body.logged-in:before
+	{
+		display: block;
+	}
+
+	body.logged-in.admin-bar:before
+	{
+		@include mq($until: wprwd)
+		{
+			top: smash-size($smash-lh*1.5);
+		}
+
+		@include mq(wprwd)
+		{
+			top: smash-size($smash-lh);
+		}
+	}
+}

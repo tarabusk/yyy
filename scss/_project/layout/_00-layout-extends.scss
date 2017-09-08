@@ -1,0 +1,431 @@
+/* # Layout extends */
+
+// Kuddos to @htmlvv
+
+/* # Variables */
+
+
+
+
+@at-root
+{
+
+	/* - Grille pas fluide */
+
+	//
+	// Tablet: 2 cols
+	//
+
+	%layout-col-half-smaller
+	{
+		@include mq($until: desktop)
+		{
+			float: left;
+			background: blue;
+			@include calc(width, "50% - #{$smash-gutter-smaller/2}");
+
+			& + &:nth-child(even)
+			{
+				margin-left: smash-size( $smash-gutter-smaller );
+			}
+
+			&:only-child
+			{
+				float: none;
+				width: auto;
+			}
+
+			&:nth-child(odd)
+			{
+				clear: left;
+			}
+		}
+	}
+
+	%layout-col-half-tablet
+	{
+		@include mq(tablet, desktop)
+		{
+			float: left;
+			@include calc(width, "50% - #{$smash-gutter-smaller/2}");
+
+			& + &:nth-child(even)
+			{
+				margin-left: smash-size( $smash-gutter-smaller );
+			}
+
+			&:only-child
+			{
+				float: none;
+				width: auto;
+			}
+
+			&:nth-child(odd)
+			{
+				clear: left;
+			}
+		}
+	}
+
+
+	//
+	// Tablet: linearized columns
+	//
+
+	%layout-linearized-tablet
+	{
+		@include mq(mobile, tablet)
+		{
+			// & + &
+			// {
+				//margin-top: smash-size( $smash-lh );
+			// }
+
+			margin-bottom: smash-size( $smash-lh );
+		}
+	}
+
+
+	//
+	// Mobile: linearized columns
+	//
+
+	%layout-linearized-mobile
+	{
+		@include mq($until: tablet)
+		{
+			// & + &
+			// {
+				//margin-top: smash-size( $smash-lh );
+			// }
+
+			margin-bottom: smash-size( $smash-lh );
+		}
+	}
+
+	
+
+
+	//
+	// Mobile + tablet: linearized columns
+	//
+
+	%layout-linearized-smaller
+	{
+		@include mq($until: desktop)
+		{
+			margin-bottom: smash-size( $smash-lh );
+		}
+	}
+
+	
+
+
+	// ------------------------------------------------------------------------------------------------
+
+
+	/* - Grille fluide */
+
+	%layout-fluid
+	{
+		margin-bottom: smash-size( $smash-lh );
+
+		// & + & 
+		// {
+		// 	margin-top: smash-size( $smash-lh*-1 );
+		// }
+
+		> ul, 
+		> ol 
+		{
+			margin-bottom: 0;
+		}
+			
+		/* Des gouttières externes sont ajoutées si nécessaire. */
+		@if $smash-external-gutters
+		{
+			padding-left:  smash-size($smash-gutter);
+			padding-right: smash-size($smash-gutter); 
+		}
+
+		/* La largeur maximale de la grille est calculée (avec l’unité préférée du projet). */
+		&.#{$smash-prefix-framework}-center
+		{
+			@include mq(desktop, large)
+			{
+				@include smash-grid-center($smash-cols-desktop);
+			}
+
+			@include mq(large)
+			{
+				@include smash-grid-center($smash-cols-bigger);
+			}
+		}
+
+		
+	}	
+
+	/* Une grille est imbriquée dans le contenu principal. Elle hérite de la largeur de celui-ci. */
+
+	%layout-fluid-content-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid($fluid-content-desktop);
+		}
+	}
+
+	%layout-fluid-content-bigger
+	{
+		@include mq(large)
+		{
+			@include smash-grid-fluid($fluid-content-bigger);
+		}
+	}
+
+	%layout-fluid-content
+	{
+		@extend %layout-fluid-content-desktop;
+		@extend %layout-fluid-content-bigger;
+	}
+
+
+
+	/* Les colonnes de la grille imbriquée héritent aussi de la largeur du contenu principal. */
+	/* On ne souhaite pas appliquer l’isolation : le deuxième paramètre est à `null` ou absent. */
+
+	//
+	// Fluid grid: 1 column
+	//
+
+	%layout-fluid-col-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid-col(1, null, $fluid-content-desktop);
+
+			&:nth-child(#{$smash-cols-desktop}n+1)
+			{
+				clear: left;
+			}
+		}
+
+		//@extend %layout-fluid-margin-bottom-desktop;
+	}
+
+	%layout-fluid-col-bigger
+	{
+		@include mq(large)
+		{
+			@include smash-grid-fluid-col(1, null, $fluid-content-bigger);
+
+			&:nth-child(#{$smash-cols-bigger}n+1)
+			{
+				clear: left;
+			}
+		}
+
+		//@extend %layout-fluid-margin-bottom-bigger;
+	}
+
+	%layout-fluid-col
+	{
+		@extend %layout-fluid-col-desktop;
+		@extend %layout-fluid-col-bigger;
+	}
+
+
+	//
+	// Fluid grid: half of the grid
+	//
+
+	%layout-fluid-col-half-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid-col($fluid-content-desktop/2, null, $fluid-content-desktop);
+
+			// Use case: on the blog archives.
+			&:only-child
+			{
+				@include smash-grid-fluid-col($fluid-content-desktop - 1, null, $fluid-content-desktop);				
+			}
+
+			&:nth-child(odd)
+			{
+				clear: left;
+			}
+		}
+	}
+
+	%layout-fluid-col-half-bigger
+	{
+		@include mq(large)
+		{
+			@include smash-grid-fluid-col($fluid-content-bigger/2, null, $fluid-content-bigger);
+
+			&:nth-child(odd)
+			{
+				clear: left;
+			}
+		}
+	}
+
+	%layout-fluid-col-half
+	{
+		@extend %layout-col-half-tablet;
+		@extend %layout-fluid-col-half-desktop;
+		@extend %layout-fluid-col-half-bigger;
+	}
+
+
+	//
+	// Bottom margins
+	//
+
+	%layout-fluid-margin-bottom-smaller
+	{
+		@include mq($until: desktop)
+		{
+			margin-bottom: smash-size($smash-gutter-smaller);
+		}
+	}
+
+	%layout-fluid-margin-bottom-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@if $smash-fluid-gutter-fixed
+			{
+				margin-bottom: smash-size($smash-gutter);
+			}
+			@else 
+			{
+				margin-bottom: smash-percent($smash-gutter, (smash-grid-cols-width($smash-cols-desktop) + $smash-gutter));
+			}
+		}
+	}
+
+	%layout-fluid-margin-bottom-bigger
+	{
+		@include mq(large)
+		{
+			@if $smash-fluid-gutter-fixed
+			{
+				margin-bottom: smash-size($smash-gutter);
+			}
+			@else 
+			{
+				margin-bottom: smash-percent($smash-gutter, (smash-grid-cols-width($smash-cols-bigger) + $smash-gutter));
+			}
+		}
+	}
+
+	//
+	// Fluid grid: 2 columns
+	//
+
+	%layout-fluid-col2-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid-col(2, null, $fluid-content-desktop);
+		}
+
+		//@extend %layout-fluid-margin-bottom-desktop;
+	}
+
+	%layout-fluid-col2-bigger
+	{
+		@include mq(large)
+		{
+			@include smash-grid-fluid-col(2, null, $fluid-content-bigger);
+		}
+
+		//@extend %layout-fluid-margin-bottom-bigger;
+	}
+
+	%layout-fluid-col2
+	{
+		@extend %layout-fluid-col2-desktop;
+		@extend %layout-fluid-col2-bigger;
+	}
+
+
+	//
+	// Fluid grid: 3 columns
+	// 
+
+	%layout-fluid-col3-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid-col(3, null, $fluid-content-desktop);
+		}
+
+		//@extend %layout-fluid-margin-bottom-desktop;
+	}
+
+	%layout-fluid-col3-bigger
+	{
+		@include mq(large)
+		{
+			@include smash-grid-fluid-col(3, null, $fluid-content-bigger);
+		}
+
+		//@extend %layout-fluid-margin-bottom-bigger;
+	}
+
+	%layout-fluid-col3
+	{
+		@extend %layout-fluid-col3-desktop;
+		@extend %layout-fluid-col3-bigger;
+	}
+
+
+	//
+	// Fluid grid: 4 columns
+	//
+
+	%layout-fluid-col4-desktop
+	{
+		@include mq(desktop, large)
+		{
+			@include smash-grid-fluid-col(3, null, $fluid-content-desktop);
+		}
+
+		//@extend %layout-fluid-margin-bottom-desktop;
+	}
+
+	%layout-fluid-col4-bigger
+	{
+		@include mq(large)
+		{
+			@include smash-grid-fluid-col(4, null, $fluid-content-bigger);
+		}
+
+		//@extend %layout-fluid-margin-bottom-bigger;
+	}	
+
+	%layout-fluid-col4
+	{
+		@extend %layout-fluid-col4-desktop;
+		@extend %layout-fluid-col4-bigger;
+	}	
+
+
+
+	//
+	// Fullscreen layout
+	//
+	%layout-fullscreen
+	{
+		height: 100%;
+	}
+
+
+	//
+	// That's all, folks.
+	// 
+	
+}
